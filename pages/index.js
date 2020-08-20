@@ -18,6 +18,18 @@ export default function Home() {
             code
           </div>
         </div>
+
+        <div className={styles.postsContainer}>
+          <h3 className={styles.postsContainerTitle}>Recent Posts</h3>
+          {new Array(5).fill(0).map((_, i) => {
+            const idx = i;
+            return (
+              <span className={styles.postLink}>
+                <a href='#'>This is a dummy post</a>
+              </span>
+            );
+          })}
+        </div>
       </main>
 
       <footer className={styles.footer}>

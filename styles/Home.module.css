@@ -11,11 +11,10 @@
 .main {
   display: flex;
   flex-direction: column;
-  align-items: center;
   flex: 1;
 
-  width: calc(100vw - 20%);
-  margin: 5% 10% 0 10%;
+  width: calc(100vw - 50%);
+  margin: 5% 25% 0 25%;
 }
 
 .profileContainer {
@@ -24,6 +23,7 @@
   align-items: center;
 
   padding-bottom: 2rem;
+
   border-bottom: 1px solid #eee;
 }
 
@@ -42,6 +42,27 @@
 .profileBio {
   text-align: center;
   font-size: 1rem;
+}
+
+.postsContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.postsContainer .postsContainerTitle {
+  margin: 1rem 0 0.5rem 0;
+}
+
+.postsContainer .postLink {
+  margin-top: 0.5rem;
+  font-weight: bolder;
+}
+
+.postLink > a,
+.postLink > a:visited,
+.postLink > a:hover {
+  color: #0e55fe;
+  text-decoration: none;
 }
 
 .footer {
