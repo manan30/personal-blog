@@ -24,9 +24,19 @@ export default function Home() {
           {new Array(5).fill(0).map((_, i) => {
             const idx = i;
             return (
-              <span className={styles.postLink}>
-                <a href='#'>This is a dummy post</a>
-              </span>
+              <div key={idx} className={styles.postCard}>
+                <span className={styles.postLink}>
+                  <a href='#'>The WET Codebase</a>
+                  <div className={styles.postInfo}>
+                    <div>August 21, 2020</div>
+                    <div className={styles.separator} />
+                    <div>1min read</div>
+                  </div>
+                  <div className={styles.postDescription}>
+                    Description of what the post all about
+                  </div>
+                </span>
+              </div>
             );
           })}
         </div>
