@@ -23,23 +23,32 @@ export default function Home({ posts }) {
 
         <div className={styles.postsContainer}>
           <h3 className={styles.postsContainerTitle}>Recent Posts</h3>
-          {posts.map(({ fields, sys }) => (
-            <div key={sys.id} className={styles.postCard}>
-              <span className={styles.postLink}>
-                <Link href="/[pid]" as={`/${fields.slugUrl}`}>
-                  <a>{fields.postTitle}</a>
-                </Link>
-                <div className={styles.postInfo}>
-                  <div>{new Date(fields.postDate).getDate()}</div>
-                  <div className={styles.separator} />
-                  <div>{fields.readTime}min read</div>
-                </div>
-                <div className={styles.postDescription}>
-                  Description of what the post all about
-                </div>
-              </span>
-            </div>
-          ))}
+          {posts.map(({ fields, sys }) => {
+            const date = new Date(fields.postDate);
+            return (
+              <div key={sys.id} className={styles.postCard}>
+                <span className={styles.postLink}>
+                  <Link href="/[slug]" as={`/${fields.slugUrl}`}>
+                    <a>{fields.postTitle}</a>
+                  </Link>
+                  <div className={styles.postInfo}>
+                    <div>
+                      {date.getDate()}{' '}
+                      {date.toLocaleString('default', {
+                        month: 'short'
+                      })}
+                      , {date.getFullYear()}
+                    </div>
+                    <div className={styles.separator} />
+                    <div>{fields.readTime}min read</div>
+                  </div>
+                  <div className={styles.postDescription}>
+                    Description of what the post all about
+                  </div>
+                </span>
+              </div>
+            );
+          })}
         </div>
       </main>
 

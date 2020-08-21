@@ -8,10 +8,29 @@ const client = createClient({
 export async function getRecentPosts() {
   try {
     const { items } = await client.getEntries({
+      content_type: 'blogPost',
       limit: 5,
+      select:
+        'sys.id,fields.slugUrl,fields.postTitle,fields.postDate,fields.readTime',
       order: 'sys.createdAt'
     });
-    if (items) return items;
+    if (items.length) return items;
+    return [];
+  } catch (e) {
+    console.error(e);
+    return [];
+  }
+}
+
+export async function getPostBySlug(slug) {
+  try {
+    const { items } = await client.getEntries({
+      content_type: 'blogPost',
+      limit: 1,
+      'fields.slugUrl[in]': slug
+    });
+    if (items.length) return items;
+    return [];
   } catch (e) {
     console.error(e);
     return [];
