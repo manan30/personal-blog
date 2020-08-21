@@ -5,14 +5,15 @@ const client = createClient({
   accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
 });
 
-async function getRecentPosts() {
+export async function getRecentPosts() {
   try {
     const { items } = await client.getEntries({
       limit: 5,
       order: 'sys.createdAt'
     });
-    if (items) setPosts(items);
+    if (items) return items;
   } catch (e) {
     console.error(e);
+    return [];
   }
 }
