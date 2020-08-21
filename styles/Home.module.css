@@ -47,9 +47,13 @@
 .postsContainer {
   display: flex;
   flex-direction: column;
+
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #eee;
 }
 
-.postsContainer .postsContainerTitle {
+.postsContainer .postsContainerTitle,
+.tagsContainer .tagsContainerTitle {
   margin: 1rem 0 1rem 1rem;
 }
 
@@ -97,6 +101,31 @@
 
 .postCard .postDescription {
   font-size: 0.8rem;
+}
+
+.tagsGrid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.tagsContainer {
+  margin-bottom: 3rem;
+}
+
+.tagCard {
+  padding: 0.7rem 1rem;
+
+  border-radius: 0.8rem;
+
+  color: #0e55fe;
+  cursor: pointer;
+  border: 1px solid #eee;
+
+  transition: all 0.5s;
+}
+.tagCard:hover {
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
 }
 
 .footer {

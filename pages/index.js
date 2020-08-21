@@ -1,9 +1,11 @@
 import Head from 'next/head';
-import Link from 'next/link';
-import styles from '../styles/Home.module.css';
+import PropTypes from 'prop-types';
+import Loader from '../components/loader';
+import RecentPosts from '../components/recent-posts';
 import { getRecentPosts } from '../contentful';
+import styles from '../styles/Home.module.css';
 
-export default function Home({ posts }) {
+export default function Home({ recentPosts }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -20,35 +22,18 @@ export default function Home({ posts }) {
             code
           </div>
         </div>
+        {recentPosts.length === 0 ? (
+          <Loader />
+        ) : (
+          <RecentPosts posts={recentPosts} />
+        )}
 
-        <div className={styles.postsContainer}>
-          <h3 className={styles.postsContainerTitle}>Recent Posts</h3>
-          {posts.map(({ fields, sys }) => {
-            const date = new Date(fields.postDate);
-            return (
-              <div key={sys.id} className={styles.postCard}>
-                <span className={styles.postLink}>
-                  <Link href="/[slug]" as={`/${fields.slugUrl}`}>
-                    <a>{fields.postTitle}</a>
-                  </Link>
-                  <div className={styles.postInfo}>
-                    <div>
-                      {date.getDate()}{' '}
-                      {date.toLocaleString('default', {
-                        month: 'short'
-                      })}
-                      , {date.getFullYear()}
-                    </div>
-                    <div className={styles.separator} />
-                    <div>{fields.readTime}min read</div>
-                  </div>
-                  <div className={styles.postDescription}>
-                    Description of what the post all about
-                  </div>
-                </span>
-              </div>
-            );
-          })}
+        <div className={styles.tagsContainer}>
+          <h3 className={styles.tagsContainerTitle}>Tags</h3>
+          <div className={styles.tagsGrid}>
+            <div className={styles.tagCard}>All Posts</div>
+            <div className={styles.tagCard}>React</div>
+          </div>
         </div>
       </main>
 
@@ -71,7 +56,11 @@ export default function Home({ posts }) {
   );
 }
 
+Home.propTypes = {
+  recentPosts: PropTypes.arrayOf(PropTypes.any).isRequired
+};
+
 export const getStaticProps = async () => {
   const posts = await getRecentPosts();
-  return { props: { posts } };
+  return { props: { recentPosts: posts } };
 };

@@ -1,0 +1,16 @@
+.container {
+  min-height: 100vh;
+  width: calc(100vw - 40%);
+  margin: 0 20%;
+}
+
+.postTitle {
+  margin-top: 5rem;
+
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+.content {
+  margin-top: 2rem;
+}
