@@ -36,6 +36,8 @@ export default function Post({ post }) {
               file: post.coverImage.file,
               alt: post.coverImage.alt
             }}
+            date={new Date(post.date)}
+            readTime={post.readTime}
           />
           <ReactMarkdown escapeHtml={false} source={post.content} />
         </article>
