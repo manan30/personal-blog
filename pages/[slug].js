@@ -1,34 +1,54 @@
+import matter from 'gray-matter';
+import ErrorPage from 'next/error';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { getPostBySlug } from '../contentful';
+import ReactMarkdown from 'react-markdown/with-html';
+import { getAllPostsWithSlug, getPostBySlug } from '../contentful';
 import styles from '../styles/Slug.module.css';
 
-export default function Post() {
+export default function Post({ post }) {
   const router = useRouter();
-  const [postContent, setPostContent] = useState([]);
-  const { slug } = router.query;
 
-  useEffect(() => {
-    (async function fetchContent() {
-      const data = await getPostBySlug(slug);
-      setPostContent(data);
-    })();
-  }, [slug]);
+  if (!router.isFallback && !post) {
+    return <ErrorPage statusCode={404} />;
+  }
 
-  console.log(postContent[0]);
-
-  const content = documentToReactComponents(
-    postContent[0]?.fields?.postContent
-  );
-  console.log(content);
+  console.log(post.content);
 
   return (
-    postContent.length > 0 && (
-      <div className={styles.container}>
-        <h1 className={styles.postTitle}>{postContent[0].fields.postTitle}</h1>
-        <article>{}</article>
-      </div>
-    )
+    <div className={styles.container}>
+      <h1 className={styles.postTitle}>{post.title}</h1>
+      <article>
+        <ReactMarkdown escapeHtml={false} source={post.content.content} />
+      </article>
+    </div>
   );
+}
+
+export async function getStaticProps({ params }) {
+  const { post } = await getPostBySlug(params.slug);
+
+  if (post.length) {
+    return {
+      props: {
+        post: {
+          ...post[0].fields,
+          content: matter(post[0].fields.content)
+        }
+      }
+    };
+  }
+
+  return {
+    props: {
+      post: null
+    }
+  };
+}
+
+export async function getStaticPaths() {
+  const { posts: allPosts } = await getAllPostsWithSlug();
+  return {
+    paths: allPosts?.map(({ fields }) => `/${fields.slug}`) ?? [],
+    fallback: true
+  };
 }

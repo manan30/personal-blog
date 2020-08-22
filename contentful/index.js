@@ -29,10 +29,25 @@ export async function getPostBySlug(slug) {
       limit: 1,
       'fields.slug[in]': slug
     });
-    if (items.length) return items;
-    return [];
+    if (items.length) return { post: items, error: false };
+    return { post: [], error: false };
   } catch (e) {
     console.error(e);
-    return [];
+    return { post: [], error: true };
+  }
+}
+
+export async function getAllPostsWithSlug() {
+  try {
+    const { items } = await client.getEntries({
+      content_type: 'blogPost',
+      select: 'fields.slug'
+    });
+
+    if (items.length) return { posts: items, error: false };
+    return { posts: [], error: false };
+  } catch (e) {
+    console.error(e);
+    return { posts: [], error: true };
   }
 }
