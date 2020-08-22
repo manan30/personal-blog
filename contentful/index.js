@@ -1,4 +1,5 @@
 import { createClient } from 'contentful';
+import { parsePost, parseRecentPosts } from './utils';
 
 const client = createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
@@ -14,7 +15,7 @@ export async function getRecentPosts() {
         'sys.id,fields.slug,fields.title,fields.date,fields.readTime,fields.excerpt',
       order: '-fields.date'
     });
-    if (items.length) return { posts: items, error: false };
+    if (items.length) return { posts: parseRecentPosts(items), error: false };
     return { posts: [], error: false };
   } catch (e) {
     console.error(e);
@@ -30,7 +31,7 @@ export async function getPostBySlug(slug) {
       'fields.slug[in]': slug
     });
 
-    if (items.length) return { post: items, error: false };
+    if (items.length) return { post: parsePost(items[0]), error: false };
     return { post: null, error: false };
   } catch (e) {
     console.error(e);

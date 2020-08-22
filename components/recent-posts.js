@@ -7,14 +7,14 @@ function RecentPosts({ posts }) {
   return (
     <div className={styles.postsContainer}>
       <h3 className={styles.postsContainerTitle}>Recent Posts</h3>
-      {posts.map(({ fields, sys }) => {
-        const date = new Date(fields.date);
+      {posts.map((post) => {
+        const date = new Date(post.date);
         return (
-          <div key={sys.id} className={styles.postCard}>
+          <div key={post.id} className={styles.postCard}>
             <span className={styles.postLink}>
-              <Link href="/[slug]" as={`/${fields.slug}`}>
+              <Link href="/[slug]" as={`/${post.slug}`}>
                 {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                <a>{fields.title}</a>
+                <a>{post.title}</a>
               </Link>
               <div className={styles.postInfo}>
                 <div>
@@ -25,9 +25,9 @@ function RecentPosts({ posts }) {
                   , {date.getFullYear()}
                 </div>
                 <div className={styles.separator} />
-                <div>{fields.readTime}min read</div>
+                <div>{post.readTime}min read</div>
               </div>
-              <div className={styles.postDescription}>{fields.excerpt}</div>
+              <div className={styles.postDescription}>{post.excerpt}</div>
             </span>
           </div>
         );

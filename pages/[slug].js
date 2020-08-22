@@ -1,10 +1,13 @@
 import matter from 'gray-matter';
+import Head from 'next/head';
+import PropTypes from 'prop-types';
 import ErrorPage from 'next/error';
 import { useRouter } from 'next/router';
 import ReactMarkdown from 'react-markdown/with-html';
 import { getAllPostsWithSlug, getPostBySlug } from '../contentful';
 import styles from '../styles/Slug.module.css';
 import Loader from '../components/loader';
+import PostHeader from '../components/post-header';
 
 export default function Post({ post }) {
   const router = useRouter();
@@ -23,13 +26,27 @@ export default function Post({ post }) {
         <Loader />
       ) : (
         <article>
-          <h1 className={styles.postTitle}>{post?.title}</h1>
-          <ReactMarkdown escapeHtml={false} source={post?.content} />
+          <Head>
+            <title>{post.seoTitle}</title>
+            <meta property="og:image" content={post.coverImage.file} />
+          </Head>
+          <PostHeader
+            title={post.title}
+            coverImage={{
+              file: post.coverImage.file,
+              alt: post.coverImage.alt
+            }}
+          />
+          <ReactMarkdown escapeHtml={false} source={post.content} />
         </article>
       )}
     </div>
   );
 }
+
+Post.propTypes = {
+  post: PropTypes.objectOf(PropTypes.any).isRequired
+};
 
 export async function getStaticProps({ params }) {
   const { post } = await getPostBySlug(params.slug);
@@ -42,12 +59,12 @@ export async function getStaticProps({ params }) {
     };
   }
 
-  const { content } = matter(post[0].fields.content);
+  const { content } = matter(post.content);
 
   return {
     props: {
       post: {
-        ...post[0].fields,
+        ...post,
         content
       }
     }
