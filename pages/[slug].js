@@ -1,13 +1,13 @@
 import matter from 'gray-matter';
-import Head from 'next/head';
-import PropTypes from 'prop-types';
 import ErrorPage from 'next/error';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
-import ReactMarkdown from 'react-markdown/with-html';
+import PropTypes from 'prop-types';
+import Loader from '../components/loader';
+import PostBody from '../components/post-body';
+import PostHeader from '../components/post-header';
 import { getAllPostsWithSlug, getPostBySlug } from '../contentful';
 import styles from '../styles/Slug.module.css';
-import Loader from '../components/loader';
-import PostHeader from '../components/post-header';
 
 export default function Post({ post }) {
   const router = useRouter();
@@ -39,7 +39,7 @@ export default function Post({ post }) {
             date={new Date(post.date)}
             readTime={post.readTime}
           />
-          <ReactMarkdown escapeHtml={false} source={post.content} />
+          <PostBody content={post.content} />
         </article>
       )}
     </div>

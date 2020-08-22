@@ -1,0 +1,50 @@
+.postBody {
+  line-height: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.postBody img {
+  max-height: 30rem;
+  width: auto;
+  max-width: 100%;
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.postBody a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.postBody a:hover {
+  background-color: var(--color-primary);
+  color: #fefefe;
+}
+
+.postBody pre {
+  padding: 1rem;
+  margin: 0;
+  border-radius: 0.5rem;
+}
+
+.postBody pre,
+.postBody code {
+  background-color: var(--color-pre-code);
+}
+
+.postBody li {
+  margin-bottom: 0.5rem;
+}
+
+.postBody li:last-child {
+  margin-bottom: 0;
+}
+
+.postBody hr {
+  border: none;
+  height: 0.01rem;
+  opacity: 0.5;
+  background-color: var(--color-secondary);
+}
