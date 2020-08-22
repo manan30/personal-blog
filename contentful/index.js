@@ -12,7 +12,7 @@ export async function getRecentPosts() {
       limit: 5,
       select:
         'sys.id,fields.slug,fields.title,fields.date,fields.readTime,fields.excerpt',
-      order: 'sys.createdAt'
+      order: '-fields.date'
     });
     if (items.length) return { posts: items, error: false };
     return { posts: [], error: false };
