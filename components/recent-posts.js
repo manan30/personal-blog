@@ -8,13 +8,13 @@ function RecentPosts({ posts }) {
     <div className={styles.postsContainer}>
       <h3 className={styles.postsContainerTitle}>Recent Posts</h3>
       {posts.map(({ fields, sys }) => {
-        const date = new Date(fields.postDate);
+        const date = new Date(fields.date);
         return (
           <div key={sys.id} className={styles.postCard}>
             <span className={styles.postLink}>
-              <Link href="/[slug]" as={`/${fields.slugUrl}`}>
+              <Link href="/[slug]" as={`/${fields.slug}`}>
                 {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                <a>{fields.postTitle}</a>
+                <a>{fields.title}</a>
               </Link>
               <div className={styles.postInfo}>
                 <div>
@@ -27,9 +27,7 @@ function RecentPosts({ posts }) {
                 <div className={styles.separator} />
                 <div>{fields.readTime}min read</div>
               </div>
-              <div className={styles.postDescription}>
-                Description of what the post all about
-              </div>
+              <div className={styles.postDescription}>{fields.excerpt}</div>
             </span>
           </div>
         );

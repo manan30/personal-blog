@@ -11,7 +11,7 @@ export async function getRecentPosts() {
       content_type: 'blogPost',
       limit: 5,
       select:
-        'sys.id,fields.slugUrl,fields.postTitle,fields.postDate,fields.readTime',
+        'sys.id,fields.slug,fields.title,fields.date,fields.readTime,fields.excerpt',
       order: 'sys.createdAt'
     });
     if (items.length) return { posts: items, error: false };
@@ -27,7 +27,7 @@ export async function getPostBySlug(slug) {
     const { items } = await client.getEntries({
       content_type: 'blogPost',
       limit: 1,
-      'fields.slugUrl[in]': slug
+      'fields.slug[in]': slug
     });
     if (items.length) return items;
     return [];
