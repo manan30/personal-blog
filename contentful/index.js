@@ -29,11 +29,12 @@ export async function getPostBySlug(slug) {
       limit: 1,
       'fields.slug[in]': slug
     });
+
     if (items.length) return { post: items, error: false };
-    return { post: [], error: false };
+    return { post: null, error: false };
   } catch (e) {
     console.error(e);
-    return { post: [], error: true };
+    return { post: null, error: true };
   }
 }
 

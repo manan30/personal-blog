@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import ReactMarkdown from 'react-markdown/with-html';
 import { getAllPostsWithSlug, getPostBySlug } from '../contentful';
 import styles from '../styles/Slug.module.css';
+import Loader from '../components/loader';
 
 export default function Post({ post }) {
   const router = useRouter();
@@ -13,11 +14,19 @@ export default function Post({ post }) {
   }
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.postTitle}>{post?.title}</h1>
-      <article>
-        <ReactMarkdown escapeHtml={false} source={post?.content} />
-      </article>
+    <div
+      className={[styles.container, router.isFallback && styles.loader].join(
+        ' '
+      )}
+    >
+      {router.isFallback ? (
+        <Loader />
+      ) : (
+        <article>
+          <h1 className={styles.postTitle}>{post?.title}</h1>
+          <ReactMarkdown escapeHtml={false} source={post?.content} />
+        </article>
+      )}
     </div>
   );
 }
@@ -25,22 +34,22 @@ export default function Post({ post }) {
 export async function getStaticProps({ params }) {
   const { post } = await getPostBySlug(params.slug);
 
-  const { content } = matter(post[0].fields.content);
-
-  if (post.length) {
+  if (!post) {
     return {
       props: {
-        post: {
-          ...post[0].fields,
-          content
-        }
+        post: null
       }
     };
   }
 
+  const { content } = matter(post[0].fields.content);
+
   return {
     props: {
-      post: null
+      post: {
+        ...post[0].fields,
+        content
+      }
     }
   };
 }

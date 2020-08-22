@@ -4,6 +4,11 @@
   margin: 0 20%;
 }
 
+.container.loader {
+  display: grid;
+  place-items: center;
+}
+
 .postTitle {
   margin-top: 5rem;
 
