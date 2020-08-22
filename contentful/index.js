@@ -14,11 +14,11 @@ export async function getRecentPosts() {
         'sys.id,fields.slugUrl,fields.postTitle,fields.postDate,fields.readTime',
       order: 'sys.createdAt'
     });
-    if (items.length) return items;
-    return [];
+    if (items.length) return { posts: items, error: false };
+    return { posts: [], error: false };
   } catch (e) {
     console.error(e);
-    return [];
+    return { posts: [], error: true };
   }
 }
 

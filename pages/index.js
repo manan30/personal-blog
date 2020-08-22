@@ -2,10 +2,11 @@ import Head from 'next/head';
 import PropTypes from 'prop-types';
 import Loader from '../components/loader';
 import RecentPosts from '../components/recent-posts';
+import Error from '../components/error';
 import { getRecentPosts } from '../contentful';
 import styles from '../styles/Home.module.css';
 
-export default function Home({ recentPosts }) {
+export default function Home({ recentPosts, error }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -18,7 +19,7 @@ export default function Home({ recentPosts }) {
           <img className={styles.profilePicture} alt="" />
           <h1>Manan Joshi</h1>
           <div className={styles.profileBio}>
-            I try to explain the <i>chaos</i> of my mind with <i>ordered</i>{' '}
+            I try to explain the <i>chaos</i> in my mind with <i>ordered</i>{' '}
             code
           </div>
         </div>
@@ -36,6 +37,8 @@ export default function Home({ recentPosts }) {
           </div>
         </div>
       </main>
+
+      {error && <Error message="Error occurred while fetching recent posts" />}
 
       <footer className={styles.footer}>
         <div>
@@ -61,6 +64,6 @@ Home.propTypes = {
 };
 
 export const getStaticProps = async () => {
-  const posts = await getRecentPosts();
-  return { props: { recentPosts: posts } };
+  const { posts, error } = await getRecentPosts();
+  return { props: { recentPosts: posts, error } };
 };
