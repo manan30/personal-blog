@@ -15,7 +15,11 @@ function RecentPosts({ posts }) {
               {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <a>{post.title}</a>
             </Link>
-            <PostInfo date={new Date(post.date)} />
+            <PostInfo
+              date={new Date(post.date)}
+              readTime={post.readTime}
+              large={false}
+            />
             <div className={styles.postDescription}>{post.excerpt}</div>
           </span>
         </div>

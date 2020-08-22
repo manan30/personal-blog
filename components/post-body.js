@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown/with-html';
 import styles from '../styles/PostBody.module.css';
 
@@ -11,5 +11,9 @@ function PostBody({ content }) {
     />
   );
 }
+
+PostBody.propTypes = {
+  content: PropTypes.string.isRequired
+};
 
 export default PostBody;
