@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown/with-html';
 import styles from '../styles/PostBody.module.css';
+import CodeHighlight from './code-highlight';
 
 function PostBody({ content }) {
   return (
@@ -8,6 +9,7 @@ function PostBody({ content }) {
       escapeHtml={false}
       source={content}
       className={styles.postBody}
+      renderers={{ code: CodeHighlight }}
     />
   );
 }

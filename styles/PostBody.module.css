@@ -29,9 +29,10 @@
   border-radius: 0.5rem;
 }
 
-.postBody pre,
 .postBody code {
-  background-color: var(--color-pre-code);
+  /* background-color: var(--color-pre-code);
+  padding: 0.25rem;
+  border-radius: 0.25rem; */
 }
 
 .postBody li {
