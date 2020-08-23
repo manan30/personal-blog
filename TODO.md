@@ -14,3 +14,4 @@
 - Add tags support on contentful
 - Add tags on index page
 - Add layout component
+- Add support for dark mode
