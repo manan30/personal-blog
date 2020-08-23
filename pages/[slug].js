@@ -8,6 +8,7 @@ import PostBody from '../components/post-body';
 import PostHeader from '../components/post-header';
 import { getAllPostsWithSlug, getPostBySlug } from '../contentful';
 import styles from '../styles/Slug.module.css';
+import Author from '../components/author';
 
 export default function Post({ post }) {
   const router = useRouter();
@@ -40,6 +41,7 @@ export default function Post({ post }) {
             readTime={post.readTime}
           />
           <PostBody content={post.content} />
+          <Author />
         </article>
       )}
     </div>

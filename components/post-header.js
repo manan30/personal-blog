@@ -4,7 +4,7 @@ import PostInfo from './post-info';
 
 function PostHeader({ title, coverImage, date, readTime }) {
   return (
-    <>
+    <div className={styles.container}>
       <h1 className={styles.postTitle}>{title}</h1>
       <PostInfo date={date} readTime={readTime} large />
       <img
@@ -12,7 +12,7 @@ function PostHeader({ title, coverImage, date, readTime }) {
         src={coverImage.file}
         alt={coverImage.alt}
       />
-    </>
+    </div>
   );
 }
 

@@ -16,7 +16,11 @@ export default function Home({ recentPosts, error }) {
 
       <main className={styles.main}>
         <div className={styles.profileContainer}>
-          <img className={styles.profilePicture} alt="" />
+          <img
+            className={styles.profilePicture}
+            alt="Profile"
+            src="/images/profile-picture.jpg"
+          />
           <h1>Manan Joshi</h1>
           <div className={styles.profileBio}>
             I try to explain the <i>chaos</i> in my mind with <i>ordered</i>{' '}
@@ -29,13 +33,13 @@ export default function Home({ recentPosts, error }) {
           <RecentPosts posts={recentPosts} />
         )}
 
-        <div className={styles.tagsContainer}>
+        {/* <div className={styles.tagsContainer}>
           <h3 className={styles.tagsContainerTitle}>Tags</h3>
           <div className={styles.tagsGrid}>
             <div className={styles.tagCard}>All Posts</div>
             <div className={styles.tagCard}>React</div>
           </div>
-        </div>
+        </div> */}
       </main>
 
       {error && <Error message="Error occurred while fetching recent posts" />}
