@@ -15,3 +15,6 @@
 - Add tags on index page
 - Add layout component
 - Add support for dark mode
+- Check lighthouse ratings
+- Load images similar to KCD's blog
+- Add search posts support
