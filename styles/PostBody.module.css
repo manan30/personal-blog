@@ -27,6 +27,7 @@
   padding: 1rem;
   margin: 0;
   border-radius: 0.5rem;
+  background-color: var(--color-pre-code) !important;
 }
 
 .postBody code {
