@@ -3,18 +3,9 @@
 .container {
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-}
-
-.main {
-  display: flex;
+  justify-content: center;
   flex-direction: column;
-  flex: 1;
-
-  /* width: calc(100vw - 50%);
-  margin: 5% 25% 0 25%; */
 }
 
 .profileContainer {
@@ -22,10 +13,7 @@
   flex-direction: column;
   align-items: center;
 
-  margin: 5% 10% 0 10%;
-  padding-bottom: 2rem;
-
-  border-bottom: 1px solid #eee;
+  margin: 3rem 3rem 0 3rem;
 }
 
 .profilePicture {
@@ -44,49 +32,8 @@
   font-size: 1rem;
 }
 
-.postsContainer {
-  display: flex;
-  flex-direction: column;
-
-  margin: 0 8%;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid #eee;
-}
-
-.postsContainer .postsContainerTitle,
 .tagsContainer .tagsContainerTitle {
   margin: 1rem 0 1rem 1rem;
-}
-
-.postCard {
-  /* height: 4rem; */
-  padding: 0.7rem 1rem;
-  margin-bottom: 1rem;
-
-  border-radius: 0.8rem;
-  transition: all 0.5s;
-}
-
-.postCard:hover {
-  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
-}
-
-.postCard .postLink {
-  font-weight: bolder;
-  font-size: 1rem;
-}
-
-.postLink > a,
-.postLink > a:visited,
-.postLink > a:hover {
-  color: #0e55fe;
-  text-decoration: none;
-}
-
-.postCard .postDescription {
-  font-size: 0.7rem;
-
-  font-weight: 200;
 }
 
 .tagsGrid {
@@ -113,21 +60,6 @@
 .tagCard:hover {
   border-color: transparent;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
-}
-
-.footer {
-  width: 100%;
-  height: 100px;
-  border-top: 1px solid #eaeaea;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  color: var(--color-secondary);
-}
-
-.footer a {
-  margin-top: 0.5rem;
 }
 
 .title a {

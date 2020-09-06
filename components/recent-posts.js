@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import Link from 'next/link';
-import styles from '../styles/Home.module.css';
+import PropTypes from 'prop-types';
+import React from 'react';
+import styles from '../styles/RecentPosts.module.css';
 import PostInfo from './post-info';
 
 function RecentPosts({ posts }) {

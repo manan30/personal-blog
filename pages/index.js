@@ -5,16 +5,15 @@ import RecentPosts from '../components/recent-posts';
 import Error from '../components/error';
 import { getRecentPosts } from '../contentful';
 import styles from '../styles/Home.module.css';
+import Layout from '../components/layout';
 
 export default function Home({ recentPosts, error }) {
   return (
-    <div className={styles.container}>
+    <Layout>
       <Head>
         <title>Blog | Manan Joshi</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main className={styles.main}>
+      <div className={styles.container}>
         <div className={styles.profileContainer}>
           <img
             className={styles.profilePicture}
@@ -32,7 +31,6 @@ export default function Home({ recentPosts, error }) {
         ) : (
           <RecentPosts posts={recentPosts} />
         )}
-
         {/* <div className={styles.tagsContainer}>
           <h3 className={styles.tagsContainerTitle}>Tags</h3>
           <div className={styles.tagsGrid}>
@@ -40,26 +38,9 @@ export default function Home({ recentPosts, error }) {
             <div className={styles.tagCard}>React</div>
           </div>
         </div> */}
-      </main>
-
+      </div>
       {error && <Error message="Error occurred while fetching recent posts" />}
-
-      <footer className={styles.footer}>
-        <div>
-          <span>
-            &#169; Copyright 2020{' '}
-            <a href="https://mananjoshi.me">Manan Joshi</a>
-          </span>
-        </div>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by Vercel
-        </a>
-      </footer>
-    </div>
+    </Layout>
   );
 }
 

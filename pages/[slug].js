@@ -11,6 +11,7 @@ import styles from '../styles/Slug.module.css';
 import Author from '../components/author';
 
 export default function Post({ post }) {
+  console.log(post);
   const router = useRouter();
 
   if (!router.isFallback && !post) {
