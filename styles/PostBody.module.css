@@ -12,6 +12,8 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-color: grey;
+
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
 }
 
 .postBody a {
