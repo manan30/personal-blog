@@ -30,11 +30,11 @@
   padding: 1rem;
   margin: 0;
   border-radius: 0.5rem;
-  background-color: var(--color-pre-code) !important;
+  overflow: scroll hidden !important;
 }
 
 .postBody code {
-  background-color: var(--color-pre-code);
+  background-color: #fefefe;
   padding: 0.25rem;
   border-radius: 0.25rem;
 }
@@ -57,7 +57,7 @@
 .postBody blockquote {
   margin: 0;
   padding: 1rem 0.5rem 1rem 2rem;
-  border-left: 0.5rem solid var(--color-pre-code);
+  border-left: 0.5rem solid #bcc8c8;
   font-style: italic;
   background-color: #f5f5f5;
 }

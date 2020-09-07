@@ -12,3 +12,10 @@
 .content {
   margin-top: 2rem;
 }
+
+@media screen and (max-width: 878px) {
+  .container {
+    width: calc(100vw - 10%);
+    margin: 0 5%;
+  }
+}
