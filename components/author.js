@@ -7,6 +7,7 @@ function Author() {
         className={styles.authorImg}
         alt="Profile"
         src="/images/profile-picture.jpg"
+        loading="lazy"
       />
       <div className={styles.infoContainer}>
         {/* <div style={{ marginBottom: '0.5rem' }}>

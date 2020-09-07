@@ -19,6 +19,7 @@ export default function Home({ recentPosts, error }) {
             className={styles.profilePicture}
             alt="Profile"
             src="/images/profile-picture.jpg"
+            loading="lazy"
           />
           <h1>Manan Joshi</h1>
           <div className={styles.profileBio}>

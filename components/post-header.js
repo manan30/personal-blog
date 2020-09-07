@@ -11,6 +11,7 @@ function PostHeader({ title, coverImage, date, readTime }) {
         className={styles.coverImage}
         src={coverImage.file}
         alt={coverImage.alt}
+        loading="lazy"
       />
     </div>
   );
