@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import PropTypes from 'prop-types';
 import Loader from '../components/loader';
 import RecentPosts from '../components/recent-posts';
@@ -10,9 +11,14 @@ import Layout from '../components/layout';
 export default function Home({ recentPosts, error }) {
   return (
     <Layout>
-      <Head>
-        <title>Blog | Manan Joshi</title>
-      </Head>
+      <NextSeo
+        title="Blog | Manan Joshi"
+        description=""
+        canonical="https://blog.mananjoshi.me"
+        openGraph={{
+          description: ''
+        }}
+      />
       <div className={styles.container}>
         <div className={styles.profileContainer}>
           <img

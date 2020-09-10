@@ -12,6 +12,7 @@
     "@svgr/webpack": "5.4.0",
     "contentful": "7.14.6",
     "next": "9.5.2",
+    "next-seo": "4.7.3",
     "prop-types": "15.7.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",

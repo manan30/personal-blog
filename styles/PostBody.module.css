@@ -1,5 +1,5 @@
 .postBody {
-  line-height: 1.5rem;
+  line-height: 1.8rem;
   margin-bottom: 2rem;
 }
 
@@ -33,12 +33,17 @@
   margin: 0;
   border-radius: 0.5rem;
   overflow: scroll hidden !important;
+  background-color: #e5eaed !important;
 }
 
 .postBody code {
-  background-color: #fefefe;
+  background-color: #e5eaed;
   padding: 0.25rem;
   border-radius: 0.25rem;
+}
+
+.postBody code > span {
+  background-color: transparent !important;
 }
 
 .postBody li {

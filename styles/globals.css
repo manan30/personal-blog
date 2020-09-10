@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&family=Raleway&family=Rubik&display=swap');
 
 :root {
-  /* --color-primary: #0e55fe; */
-  --color-primary: #2b6daf;
+  --color-primary: #0e55fe;
+  /* --color-primary: #2b6daf; */
   --color-secondary: #a9b4c2;
   --color-pre-code: #e7eaee;
 }
@@ -14,7 +14,8 @@ body {
   font-family: Rubik, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
-  background-color: #e5eaed;
+  /* background-color: #e5eaed; */
+  background-color: #fefefe;
 }
 
 a {

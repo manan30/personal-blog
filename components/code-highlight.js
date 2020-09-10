@@ -15,7 +15,7 @@ function CodeHighlight({ value, language }) {
       codeTagProps={{
         style: {
           fontFamily: 'Nunito',
-          backgroundColor: 'transparent',
+          backgroundColor: 'transparent !important',
           padding: '0',
           borderRadius: '0'
         }
