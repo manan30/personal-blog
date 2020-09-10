@@ -1,6 +1,6 @@
 import matter from 'gray-matter';
+import { NextSeo } from 'next-seo';
 import ErrorPage from 'next/error';
-import Head from 'next/head';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import Author from '../components/author';
@@ -11,7 +11,7 @@ import PostHeader from '../components/post-header';
 import { getAllPostsWithSlug, getPostBySlug } from '../contentful';
 import styles from '../styles/Slug.module.css';
 
-export default function Post({ post }) {
+export default function Post({ post, slug }) {
   const router = useRouter();
 
   if (!router.isFallback && !post) {
@@ -29,10 +29,23 @@ export default function Post({ post }) {
           <Loader />
         ) : (
           <article>
-            <Head>
-              <title>{post.seoTitle}</title>
-              <meta property="og:image" content={post.coverImage.file} />
-            </Head>
+            <NextSeo
+              title={post.seoTitle}
+              description=""
+              openGraph={{
+                type: 'article',
+                url: `https://blog.mananjoshi.me/${slug}`,
+                description: '',
+                title: post.seoTitle,
+                images: [
+                  { url: post.coverImage.file, alt: post.coverImage.alt }
+                ],
+                article: {
+                  publishedTime: post.date,
+                  tags: ['React']
+                }
+              }}
+            />
             <PostHeader
               title={post.title}
               coverImage={{
@@ -61,7 +74,8 @@ export async function getStaticProps({ params }) {
   if (!post) {
     return {
       props: {
-        post: null
+        post: null,
+        slug: params.slug
       }
     };
   }
@@ -73,7 +87,8 @@ export async function getStaticProps({ params }) {
       post: {
         ...post,
         content
-      }
+      },
+      slug: params.slug
     }
   };
 }

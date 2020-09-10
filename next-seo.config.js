@@ -3,7 +3,9 @@ export default {
     type: 'website',
     site_name: "Manan Joshi's Personal Blog",
     title: 'Blog | Manan Joshi',
-    image: 'https://blog.mananjoshi.me/images/seo-image.jpg',
+    images: [
+      { url: 'https://blog.mananjoshi.me/images/seo-image.jpg', alt: 'Profile' }
+    ],
     url: 'https://blog.mananjoshi.me',
     profile: {
       first_name: 'Manan',

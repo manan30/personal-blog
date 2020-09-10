@@ -1,22 +1,21 @@
-import Head from 'next/head';
 import { NextSeo } from 'next-seo';
 import PropTypes from 'prop-types';
+import Error from '../components/error';
+import Layout from '../components/layout';
 import Loader from '../components/loader';
 import RecentPosts from '../components/recent-posts';
-import Error from '../components/error';
 import { getRecentPosts } from '../contentful';
 import styles from '../styles/Home.module.css';
-import Layout from '../components/layout';
 
 export default function Home({ recentPosts, error }) {
   return (
     <Layout>
       <NextSeo
         title="Blog | Manan Joshi"
-        description=""
+        description="This is description"
         canonical="https://blog.mananjoshi.me"
         openGraph={{
-          description: ''
+          description: 'This is a opengraph description'
         }}
       />
       <div className={styles.container}>
