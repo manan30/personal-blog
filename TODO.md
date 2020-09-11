@@ -5,15 +5,15 @@
   - Add header to each post
   - Add social share icons as well
 
-- Add SEO
+<!-- - Add SEO
 
   - Opengraph,Twitter
   - SEO support on contentful
-  - SEO component
+  - SEO component -->
 
 - Add tags support on contentful
 - Add tags on index page
-- Add layout component
+<!-- - Add layout component -->
 - Add support for dark mode
 - Check lighthouse ratings
 - Load images similar to KCD's blog
