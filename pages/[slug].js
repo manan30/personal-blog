@@ -31,11 +31,11 @@ export default function Post({ post, slug }) {
           <article>
             <NextSeo
               title={post.seoTitle}
-              description=""
+              description={post.seoDescription}
               openGraph={{
                 type: 'article',
                 url: `https://blog.mananjoshi.me/${slug}`,
-                description: '',
+                description: post.seoDescription,
                 title: post.seoTitle,
                 images: [
                   { url: post.coverImage.file, alt: post.coverImage.alt }

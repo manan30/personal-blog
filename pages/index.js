@@ -12,10 +12,11 @@ export default function Home({ recentPosts, error }) {
     <Layout>
       <NextSeo
         title="Blog | Manan Joshi"
-        description="This is description"
+        description="Manan Joshi is a passionate full-stack developer and loves working with web technologies. He is interested in building software that empowers the lives of people. He recently graduated with a Master's degree from Rochester Institute of Technology. He is currently working as a Software Engineer at Egen Solutions and lives in Naperville, Illinois."
         canonical="https://blog.mananjoshi.me"
         openGraph={{
-          description: 'This is a opengraph description'
+          description:
+            "Manan Joshi is a passionate full-stack developer and loves working with web technologies. He is interested in building software that empowers the lives of people. He recently graduated with a Master's degree from Rochester Institute of Technology. He is currently working as a Software Engineer at Egen Solutions and lives in Naperville, Illinois."
         }}
       />
       <div className={styles.container}>
