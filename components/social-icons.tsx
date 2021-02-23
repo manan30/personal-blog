@@ -7,7 +7,7 @@ import MediumIcon from '../public/images/svg/medium.svg';
 import StackOverflowIcon from '../public/images/svg/stackoverflow.svg';
 import styles from '../styles/SocialIcons.module.css';
 
-function SocialIcons() {
+const SocialIcons = () => {
   return (
     <div className={styles.container}>
       <a href="https://twitter.com/manan__joshi" aria-label="Visit my Twitter">
@@ -42,6 +42,6 @@ function SocialIcons() {
       </a>
     </div>
   );
-}
+};
 
 export default SocialIcons;

@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-function Meta() {
+const Meta = () => {
   return (
     <Head>
       <meta
@@ -37,6 +37,6 @@ function Meta() {
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
     </Head>
   );
-}
+};
 
 export default Meta;

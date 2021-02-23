@@ -1,7 +1,12 @@
-import PropTypes from 'prop-types';
 import styles from '../styles/PostInfo.module.css';
 
-function PostInfo({ date, readTime, large }) {
+type PostInfoProps = {
+  date: Date;
+  readTime: number;
+  large?: boolean;
+};
+
+const PostInfo: React.FC<PostInfoProps> = ({ date, readTime, large }) => {
   return (
     <div className={[styles.postInfo, large && styles.large].join(' ')}>
       <div>
@@ -15,16 +20,6 @@ function PostInfo({ date, readTime, large }) {
       <div>{readTime}min read</div>
     </div>
   );
-}
-
-PostInfo.propTypes = {
-  date: PropTypes.objectOf(Date).isRequired,
-  readTime: PropTypes.number.isRequired,
-  large: PropTypes.bool
-};
-
-PostInfo.defaultProps = {
-  large: false
 };
 
 export default PostInfo;

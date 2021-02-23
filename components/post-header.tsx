@@ -1,8 +1,19 @@
-import PropTypes from 'prop-types';
 import styles from '../styles/PostHeader.module.css';
 import PostInfo from './post-info';
 
-function PostHeader({ title, coverImage, date, readTime }) {
+type PostHeaderProps = {
+  title: string;
+  coverImage: { file: string; alt: string };
+  date: Date;
+  readTime: number;
+};
+
+const PostHeader: React.FC<PostHeaderProps> = ({
+  title,
+  coverImage,
+  date,
+  readTime
+}) => {
   return (
     <div className={styles.container}>
       <h1 className={styles.postTitle}>{title}</h1>
@@ -15,14 +26,6 @@ function PostHeader({ title, coverImage, date, readTime }) {
       />
     </div>
   );
-}
-
-PostHeader.propTypes = {
-  title: PropTypes.string.isRequired,
-  coverImage: PropTypes.shape({ file: PropTypes.string, alt: PropTypes.string })
-    .isRequired,
-  date: PropTypes.objectOf(Date).isRequired,
-  readTime: PropTypes.number.isRequired
 };
 
 export default PostHeader;

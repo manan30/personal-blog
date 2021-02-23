@@ -1,17 +1,23 @@
 import matter from 'gray-matter';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
 import ErrorPage from 'next/error';
 import { useRouter } from 'next/router';
-import PropTypes from 'prop-types';
 import Author from '../components/author';
 import Layout from '../components/layout';
 import Loader from '../components/loader';
 import PostBody from '../components/post-body';
 import PostHeader from '../components/post-header';
 import { getAllPostsWithSlug, getPostBySlug } from '../contentful';
+import { ParsedPost } from '../contentful/utils';
 import styles from '../styles/Slug.module.css';
 
-export default function Post({ post, slug }) {
+type PostPageProps = {
+  post: ParsedPost | null;
+  slug: string;
+};
+
+const Post: React.FC<PostPageProps> = ({ post, slug }) => {
   const router = useRouter();
 
   if (!router.isFallback && !post) {
@@ -41,7 +47,11 @@ export default function Post({ post, slug }) {
                   { url: post.coverImage.file, alt: post.coverImage.alt }
                 ],
                 article: {
-                  publishedTime: post.date,
+                  publishedTime: new Intl.DateTimeFormat('en-US', {
+                    day: 'numeric',
+                    year: 'numeric',
+                    month: 'long'
+                  }).format(new Date(post.date)),
                   tags: ['React']
                 }
               }}
@@ -62,20 +72,20 @@ export default function Post({ post, slug }) {
       </div>
     </Layout>
   );
-}
-
-Post.propTypes = {
-  post: PropTypes.objectOf(PropTypes.any).isRequired
 };
 
-export async function getStaticProps({ params }) {
-  const { post } = await getPostBySlug(params.slug);
+export const getStaticProps: GetStaticProps<{
+  post: null | ParsedPost;
+  slug: string;
+}> = async ({ params }) => {
+  // TODO: Add error handling
+  const { post } = await getPostBySlug(params.slug.toString());
 
   if (!post) {
     return {
       props: {
         post: null,
-        slug: params.slug
+        slug: params.slug.toString()
       }
     };
   }
@@ -87,16 +97,19 @@ export async function getStaticProps({ params }) {
       post: {
         ...post,
         content
-      },
-      slug: params.slug
+      } as ParsedPost,
+      slug: params.slug.toString()
     }
   };
-}
+};
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const { posts: allPosts } = await getAllPostsWithSlug();
+
   return {
     paths: allPosts?.map(({ fields }) => `/${fields.slug}`) ?? [],
     fallback: true
   };
-}
+};
+
+export default Post;

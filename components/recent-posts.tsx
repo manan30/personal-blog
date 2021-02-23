@@ -1,10 +1,15 @@
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { RecentPost } from '../contentful/utils';
 import styles from '../styles/RecentPosts.module.css';
 import PostInfo from './post-info';
 
-function RecentPosts({ posts }) {
+type RecentPostsProps = {
+  posts: RecentPost[];
+};
+
+const RecentPosts: React.FC<RecentPostsProps> = ({ posts }) => {
   return (
     <div className={styles.postsContainer}>
       <h3 className={styles.postsContainerTitle}>Recent Posts</h3>
@@ -26,7 +31,7 @@ function RecentPosts({ posts }) {
       ))}
     </div>
   );
-}
+};
 
 RecentPosts.propTypes = {
   posts: PropTypes.arrayOf(PropTypes.any).isRequired

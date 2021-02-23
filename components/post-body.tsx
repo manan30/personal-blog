@@ -1,9 +1,12 @@
-import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown/with-html';
 import styles from '../styles/PostBody.module.css';
 import CodeHighlight from './code-highlight';
 
-function PostBody({ content }) {
+type PostBodyProps = {
+  content: string;
+};
+
+const PostBody: React.FC<PostBodyProps> = ({ content }) => {
   return (
     <ReactMarkdown
       escapeHtml={false}
@@ -12,10 +15,6 @@ function PostBody({ content }) {
       renderers={{ code: CodeHighlight }}
     />
   );
-}
-
-PostBody.propTypes = {
-  content: PropTypes.string.isRequired
 };
 
 export default PostBody;
