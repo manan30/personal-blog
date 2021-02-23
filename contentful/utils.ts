@@ -1,4 +1,4 @@
-import { Entry, Sys } from 'contentful';
+import { Entry } from 'contentful';
 
 export type RecentPost = {
   id: string;
@@ -9,22 +9,33 @@ export type RecentPost = {
   excerpt: string;
 };
 
-export type Post = {
-  sys: Sys;
-  fields: {
-    title: string;
-    excerpt: string;
-    date: Date;
-    readTime: number;
-    slug: number;
-    content: string;
-    seoTitle: string;
-    seoDescription: string;
-  };
-};
+interface Post {
+  title: string;
+  excerpt: string;
+  date: Date;
+  readTime: number;
+  slug: number;
+  content: string;
+  seoTitle: string;
+  seoDescription: string;
+}
 
-export const parsePost = (post) => {
-  console.log(JSON.stringify(post, null, 2));
+export interface RawPost extends Post {
+  coverImage: Entry<{
+    title: string;
+    file: { url: string };
+  }>;
+}
+
+export interface ParsedPost extends Post {
+  id: string;
+  coverImage: {
+    alt: string;
+    file: string;
+  };
+}
+
+export const parsePost = (post: Entry<RawPost>): ParsedPost => {
   return {
     ...post.fields,
     id: post.sys.id,
