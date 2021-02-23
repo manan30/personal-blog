@@ -1,5 +1,4 @@
 import { NextSeo } from 'next-seo';
-import PropTypes from 'prop-types';
 import Error from '../components/error';
 import Layout from '../components/layout';
 import Loader from '../components/loader';
@@ -50,10 +49,6 @@ export default function Home({ recentPosts, error }) {
     </Layout>
   );
 }
-
-Home.propTypes = {
-  recentPosts: PropTypes.arrayOf(PropTypes.any).isRequired
-};
 
 export const getStaticProps = async () => {
   const { posts, error } = await getRecentPosts();
