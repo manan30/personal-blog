@@ -1,4 +1,30 @@
+import { Entry, Sys } from 'contentful';
+
+export type RecentPost = {
+  id: string;
+  slug: string;
+  title: string;
+  date: Date;
+  readTime: number;
+  excerpt: string;
+};
+
+export type Post = {
+  sys: Sys;
+  fields: {
+    title: string;
+    excerpt: string;
+    date: Date;
+    readTime: number;
+    slug: number;
+    content: string;
+    seoTitle: string;
+    seoDescription: string;
+  };
+};
+
 export const parsePost = (post) => {
+  console.log(JSON.stringify(post, null, 2));
   return {
     ...post.fields,
     id: post.sys.id,
@@ -9,9 +35,13 @@ export const parsePost = (post) => {
   };
 };
 
-export const parseRecentPosts = (posts) => {
+export const parseRecentPosts = (posts: Entry<RecentPost>[]): RecentPost[] => {
   return posts.map((post) => ({
-    ...post.fields,
-    ...post.sys
+    id: post.sys.id,
+    title: post.fields.title,
+    date: post.fields.date,
+    excerpt: post.fields.excerpt,
+    readTime: post.fields.readTime,
+    slug: post.fields.slug
   }));
 };
