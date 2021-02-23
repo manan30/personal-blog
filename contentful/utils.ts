@@ -1,8 +1,3 @@
-/**
- * @function parsePost
- * @param  {type} post {description}
- * @return {Object} {description}
- */
 export const parsePost = (post) => {
   return {
     ...post.fields,
@@ -14,11 +9,6 @@ export const parsePost = (post) => {
   };
 };
 
-/**
- * @function ParseRecentPosts
- * @param  {type} posts {description}
- * @return {type} {description}
- */
 export const parseRecentPosts = (posts) => {
   return posts.map((post) => ({
     ...post.fields,
