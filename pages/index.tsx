@@ -4,9 +4,15 @@ import Layout from '../components/layout';
 import Loader from '../components/loader';
 import RecentPosts from '../components/recent-posts';
 import { getRecentPosts } from '../contentful';
+import { RecentPost } from '../contentful/utils';
 import styles from '../styles/Home.module.css';
 
-export default function Home({ recentPosts, error }) {
+type HomePageProps = {
+  recentPosts: RecentPost[];
+  error: boolean;
+};
+
+const Home: React.FC<HomePageProps> = ({ recentPosts, error }) => {
   return (
     <Layout>
       <NextSeo
@@ -48,9 +54,11 @@ export default function Home({ recentPosts, error }) {
       {error && <Error message="Error occurred while fetching recent posts" />}
     </Layout>
   );
-}
+};
 
 export const getStaticProps = async () => {
   const { posts, error } = await getRecentPosts();
   return { props: { recentPosts: posts, error } };
 };
+
+export default Home;
