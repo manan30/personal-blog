@@ -1,5 +1,5 @@
 import { createClient } from 'contentful';
-import { parsePost, parseRecentPosts, RecentPost } from './utils';
+import { parsePost, parseRecentPosts, RawPost, RecentPost } from './utils';
 
 const client = createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
@@ -25,7 +25,7 @@ export const getRecentPosts = async () => {
 
 export const getPostBySlug = async (slug: string) => {
   try {
-    const { items } = await client.getEntries<Post>({
+    const { items } = await client.getEntries<RawPost>({
       content_type: 'blogPost',
       limit: 1,
       'fields.slug[in]': slug
