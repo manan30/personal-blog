@@ -1,8 +1,12 @@
-import PropTypes from 'prop-types';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { coy } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
-function CodeHighlight({ value, language }) {
+type CodeHighlightProps = {
+  value: string;
+  language: string;
+};
+
+const CodeHighlight: React.FC<CodeHighlightProps> = ({ value, language }) => {
   return (
     <SyntaxHighlighter
       style={coy}
@@ -24,11 +28,6 @@ function CodeHighlight({ value, language }) {
       {value}
     </SyntaxHighlighter>
   );
-}
-
-CodeHighlight.propTypes = {
-  value: PropTypes.string.isRequired,
-  language: PropTypes.string.isRequired
 };
 
 export default CodeHighlight;

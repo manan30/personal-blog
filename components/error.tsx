@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import styles from '../styles/Error.module.css';
 
-function Error({ message }) {
+type ErrorProps = {
+  message?: string;
+};
+
+const Error: React.FC<ErrorProps> = ({ message }) => {
   const [isShowing, setIsShowing] = useState(false);
   const [completed, setCompleted] = useState(false);
 
@@ -28,14 +31,6 @@ function Error({ message }) {
       </div>
     )
   );
-}
-
-Error.propTypes = {
-  message: PropTypes.string
-};
-
-Error.defaultProps = {
-  message: ''
 };
 
 export default Error;

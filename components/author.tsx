@@ -1,6 +1,6 @@
 import styles from '../styles/Author.module.css';
 
-function Author() {
+const Author = () => {
   return (
     <div className={styles.container}>
       <img
@@ -27,6 +27,6 @@ function Author() {
       </div>
     </div>
   );
-}
+};
 
 export default Author;
