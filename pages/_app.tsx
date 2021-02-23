@@ -1,10 +1,11 @@
 import { DefaultSeo } from 'next-seo';
-import '../styles/globals.css';
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
-import defaultSEOValues from '../next-seo.config';
-import { pageView } from '../google-analytics';
 import { AppProps } from 'next/app';
+import { useRouter } from 'next/router';
+// import '../styles/globals.css';
+import { useEffect } from 'react';
+import { pageView } from '../google-analytics';
+import defaultSEOValues from '../next-seo.config';
+import 'tailwindcss/tailwind.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
