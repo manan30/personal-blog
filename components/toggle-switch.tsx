@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import MoonIcon from '../public/images/svg/moon.svg';
 import SunIcon from '../public/images/svg/sun.svg';
 import styles from '../styles/ToggleSwitch.module.css';
@@ -33,7 +33,7 @@ import styles from '../styles/ToggleSwitch.module.css';
   } */
 // `;
 
-function ToggleSwitch() {
+const ToggleSwitch = () => {
   // const { themeState, themeDispatch } = useTheme();
   const [colorMode, setColorMode] = useState('');
 
@@ -68,7 +68,6 @@ function ToggleSwitch() {
         styles.container,
         colorMode === 'dark' ? styles.dark : styles.light
       ].join(' ')}
-      type={colorMode}
     >
       {colorMode === 'dark' && <SunIcon className={styles.svgLight} />}
       <button
@@ -85,6 +84,6 @@ function ToggleSwitch() {
       {colorMode !== 'dark' && <MoonIcon className={styles.svgDark} />}
     </div>
   );
-}
+};
 
 export default ToggleSwitch;
