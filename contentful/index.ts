@@ -1,5 +1,5 @@
 import { createClient } from 'contentful';
-import { parsePost, parseRecentPosts, Post, RecentPost } from './utils';
+import { parsePost, parseRecentPosts, RecentPost } from './utils';
 
 const client = createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
@@ -39,9 +39,9 @@ export const getPostBySlug = async (slug: string) => {
   }
 };
 
-export async function getAllPostsWithSlug() {
+export const getAllPostsWithSlug = async () => {
   try {
-    const { items } = await client.getEntries({
+    const { items } = await client.getEntries<{ slug: string }>({
       content_type: 'blogPost',
       select: 'fields.slug'
     });
@@ -52,4 +52,4 @@ export async function getAllPostsWithSlug() {
     console.error(e);
     return { posts: [], error: true };
   }
-}
+};

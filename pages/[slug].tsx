@@ -1,5 +1,5 @@
 import matter from 'gray-matter';
-import { GetStaticProps } from 'next';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
 import ErrorPage from 'next/error';
 import { useRouter } from 'next/router';
@@ -51,7 +51,7 @@ const Post: React.FC<PostPageProps> = ({ post, slug }) => {
                     day: 'numeric',
                     year: 'numeric',
                     month: 'long'
-                  }).format(post.date),
+                  }).format(new Date(post.date)),
                   tags: ['React']
                 }
               }}
@@ -103,12 +103,13 @@ export const getStaticProps: GetStaticProps<{
   };
 };
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const { posts: allPosts } = await getAllPostsWithSlug();
+
   return {
     paths: allPosts?.map(({ fields }) => `/${fields.slug}`) ?? [],
     fallback: true
   };
-}
+};
 
 export default Post;
