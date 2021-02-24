@@ -5,7 +5,6 @@ import Loader from '../components/loader';
 import RecentPosts from '../components/recent-posts';
 import { getRecentPosts } from '../contentful';
 import { RecentPost } from '../contentful/utils';
-import styles from '../styles/Home.module.css';
 
 type HomePageProps = {
   recentPosts: RecentPost[];
