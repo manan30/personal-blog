@@ -1,32 +1,36 @@
-import React, { useState, useEffect } from 'react';
-import styles from '../styles/Error.module.css';
+import React, { useState } from 'react';
+import cn from 'classnames';
 
 type ErrorProps = {
   message?: string;
 };
 
 const Error: React.FC<ErrorProps> = ({ message }) => {
-  const [isShowing, setIsShowing] = useState(false);
   const [completed, setCompleted] = useState(false);
-
-  useEffect(() => {
-    setTimeout(() => setIsShowing(true), 5000);
-  }, []);
+  const [animationState, setAnimationState] = useState<'enter' | 'exit'>(
+    'enter'
+  );
 
   return (
     !completed && (
       <div
-        className={[
-          styles.container,
-          !isShowing ? styles.enter : styles.exit
-        ].join(' ')}
-        onAnimationEndCapture={() => {
-          if (isShowing) {
+        className={cn(
+          'absolute bottom-8 right-8 p-4 bg-red-500 rounded-md text-sm text-gray-200 shadow-xl',
+          animationState === 'enter' ? 'animate-slide-in' : 'animate-slide-out'
+        )}
+        onAnimationEnd={() => {
+          if (animationState === 'enter') {
+            setTimeout(() => {
+              setAnimationState('exit');
+            }, 2000);
+          }
+
+          if (animationState === 'exit') {
             setCompleted(true);
           }
         }}
       >
-        <div>{message || 'Error occurred while fetching data'}</div>
+        <div>{message ?? 'Error occurred while fetching data'}</div>
         <div>Please refresh the page after sometime</div>
       </div>
     )

@@ -6,6 +6,8 @@ const client = createClient({
   accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
 });
 
+console.log(process.env);
+
 export const getRecentPosts = async () => {
   try {
     const { items } = await client.getEntries<RecentPost>({
