@@ -2,7 +2,6 @@ import Link from 'next/link';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { RecentPost } from '../contentful/utils';
-import styles from '../styles/RecentPosts.module.css';
 import PostInfo from './post-info';
 
 type RecentPostsProps = {
@@ -22,7 +21,7 @@ const RecentPosts: React.FC<RecentPostsProps> = ({ posts }) => {
             {/* <span className="flex flex-col"> */}
             <Link href="/[slug]" as={`/${post.slug}`}>
               {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a className="font-semibold text-lg text-blue-700">
+              <a className="font-semibold text-xl text-blue-700">
                 {post.title}
               </a>
             </Link>
@@ -31,7 +30,7 @@ const RecentPosts: React.FC<RecentPostsProps> = ({ posts }) => {
               readTime={post.readTime}
               large={false}
             />
-            <div className={styles.postDescription}>{post.excerpt}</div>
+            <div className="text-sm font-medium">{post.excerpt}</div>
             {/* </span> */}
           </div>
         ))}
