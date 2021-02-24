@@ -3,7 +3,7 @@ import styles from '../styles/Footer.module.css';
 
 const Footer = () => {
   return (
-    <footer className={styles.footer}>
+    <footer className="w-full py-4 flex justify-center flex-col text-gray-500">
       <div className={styles.row1}>
         <span>
           <a href="https://mananjoshi.me">Manan Joshi</a> &#169;{' '}
