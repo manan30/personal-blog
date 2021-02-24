@@ -17,20 +17,22 @@ const RecentPosts: React.FC<RecentPostsProps> = ({ posts }) => {
         {posts.map((post) => (
           <div
             key={post.id}
-            className="px-4 py-3 rounded-xl hover:shadow-lg transition duration-500 ease-in-out"
+            className="px-4 py-3 rounded-xl hover:shadow-lg transition duration-500 ease-in-out flex flex-col space-y-2"
           >
-            <span className={styles.postLink}>
-              <Link href="/[slug]" as={`/${post.slug}`}>
-                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                <a>{post.title}</a>
-              </Link>
-              <PostInfo
-                date={new Date(post.date)}
-                readTime={post.readTime}
-                large={false}
-              />
-              <div className={styles.postDescription}>{post.excerpt}</div>
-            </span>
+            {/* <span className="flex flex-col"> */}
+            <Link href="/[slug]" as={`/${post.slug}`}>
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+              <a className="font-semibold text-lg text-blue-700">
+                {post.title}
+              </a>
+            </Link>
+            <PostInfo
+              date={new Date(post.date)}
+              readTime={post.readTime}
+              large={false}
+            />
+            <div className={styles.postDescription}>{post.excerpt}</div>
+            {/* </span> */}
           </div>
         ))}
       </div>
