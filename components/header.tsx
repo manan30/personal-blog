@@ -1,9 +1,8 @@
 import ToggleSwitch from './toggle-switch';
-import styles from '../styles/Header.module.css';
 
 const Header = () => {
   return (
-    <div className={styles.container}>
+    <div className="flex justify-end p-6">
       <ToggleSwitch />
     </div>
   );
