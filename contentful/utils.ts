@@ -1,6 +1,6 @@
 import { Entry } from 'contentful';
 
-export type RecentPost = {
+export type HomeScreenPost = {
   id: string;
   slug: string;
   title: string;
@@ -46,7 +46,9 @@ export const parsePost = (post: Entry<RawPost>): ParsedPost => {
   };
 };
 
-export const parseRecentPosts = (posts: Entry<RecentPost>[]): RecentPost[] => {
+export const parseHomeScreenPosts = (
+  posts: Entry<HomeScreenPost>[]
+): HomeScreenPost[] => {
   return posts.map((post) => ({
     id: post.sys.id,
     title: post.fields.title,

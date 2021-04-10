@@ -1,17 +1,18 @@
 import { NextSeo } from 'next-seo';
+import AllPosts from '../components/all-posts';
 import Error from '../components/error';
 import Layout from '../components/layout';
 import Loader from '../components/loader';
-import RecentPosts from '../components/recent-posts';
-import { getRecentPosts } from '../contentful';
-import { RecentPost } from '../contentful/utils';
+import { getAllPosts } from '../contentful';
+import { HomeScreenPost } from '../contentful/utils';
 
 type HomePageProps = {
-  recentPosts: RecentPost[];
+  allPosts: HomeScreenPost[];
   error: boolean;
 };
 
-const Home: React.FC<HomePageProps> = ({ recentPosts, error }) => {
+const Home: React.FC<HomePageProps> = ({ allPosts, error }) => {
+  console.log({ allPosts });
   return (
     <Layout>
       <NextSeo
@@ -23,7 +24,7 @@ const Home: React.FC<HomePageProps> = ({ recentPosts, error }) => {
             "Manan Joshi is a passionate full-stack developer and loves working with web technologies. He is interested in building software that empowers the lives of people. He recently graduated with a Master's degree from Rochester Institute of Technology. He is currently working as a Software Engineer at Egen Solutions and lives in Naperville, Illinois."
         }}
       />
-      <div className="h-screen flex items-center justify-center flex-col">
+      <div className="min-h-screen mx-auto px-6 max-w-lg md:px-0 md:max-w-xl lg:max-w-4xl">
         <div className="flex flex-col items-center mx-12 mt-12">
           <img
             className="h-32 w-32 rounded-full bg-center bg-no-repeat bg-contain"
@@ -37,11 +38,7 @@ const Home: React.FC<HomePageProps> = ({ recentPosts, error }) => {
             code
           </div>
         </div>
-        {recentPosts.length === 0 ? (
-          <Loader />
-        ) : (
-          <RecentPosts posts={recentPosts} />
-        )}
+        {allPosts.length === 0 ? <Loader /> : <AllPosts posts={allPosts} />}
         {/* <div className={styles.tagsContainer}>
           <h3 className={styles.tagsContainerTitle}>Tags</h3>
           <div className={styles.tagsGrid}>
@@ -56,8 +53,8 @@ const Home: React.FC<HomePageProps> = ({ recentPosts, error }) => {
 };
 
 export const getStaticProps = async () => {
-  const { posts, error } = await getRecentPosts();
-  return { props: { recentPosts: posts, error } };
+  const { posts, error } = await getAllPosts();
+  return { props: { allPosts: posts, error } };
 };
 
 export default Home;

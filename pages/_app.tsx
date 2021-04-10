@@ -1,7 +1,6 @@
 import { DefaultSeo } from 'next-seo';
 import { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
-// import '../styles/globals.css';
 import { useEffect } from 'react';
 import { pageView } from '../google-analytics';
 import defaultSEOValues from '../next-seo.config';

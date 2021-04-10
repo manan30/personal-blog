@@ -3,14 +3,14 @@ import React from 'react';
 import { HomeScreenPost } from '../contentful/utils';
 import PostInfo from './post-info';
 
-type RecentPostsProps = {
+type AllPostsProps = {
   posts: HomeScreenPost[];
 };
 
-const RecentPosts: React.FC<RecentPostsProps> = ({ posts }) => {
+const AllPosts: React.FC<AllPostsProps> = ({ posts }) => {
   return (
     <div className="flex flex-col mt-12">
-      <h3 className="my-4 font-medium text-xl">Recent Posts</h3>
+      <h3 className="my-4 font-medium text-xl px-3">All Posts</h3>
       <div className="space-y-5">
         {posts.map((post) => (
           <div
@@ -36,4 +36,4 @@ const RecentPosts: React.FC<RecentPostsProps> = ({ posts }) => {
   );
 };
 
-export default RecentPosts;
+export default AllPosts;

@@ -27,9 +27,10 @@ const Post: React.FC<PostPageProps> = ({ post, slug }) => {
   return (
     <Layout>
       <div
-        className={[styles.container, router.isFallback && styles.loader].join(
-          ' '
-        )}
+        // className={[styles.container, router.isFallback && styles.loader].join(
+        //   ' '
+        // )}
+        className="h-screen"
       >
         {router.isFallback ? (
           <Loader />
