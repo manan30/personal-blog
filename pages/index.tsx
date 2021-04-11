@@ -27,9 +27,9 @@ const Home: React.FC<HomePageProps> = ({ allPosts, error }) => {
       <div className="min-h-screen mx-auto px-6 max-w-lg md:px-0 md:max-w-xl lg:max-w-4xl">
         <div className="flex flex-col items-center mx-12 mt-12">
           <img
-            className="h-24 w-24 md:h-32 md:w-32 rounded-full object-contain object-center"
+            className="h-24 w-24 md:h-32 md:w-32 rounded-full object-cover object-center"
             alt="Profile"
-            src="/images/profile-picture.jpg"
+            src="/images/profile-picture.webp"
             loading="lazy"
           />
           <h1 className="md:text-4xl text-2xl my-4 font-medium text-center">
