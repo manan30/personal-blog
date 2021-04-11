@@ -1,4 +1,3 @@
-import styles from '../styles/PostHeader.module.css';
 import PostInfo from './post-info';
 
 type PostHeaderProps = {
@@ -15,11 +14,13 @@ const PostHeader: React.FC<PostHeaderProps> = ({
   readTime
 }) => {
   return (
-    <div className={styles.container}>
-      <h1 className={styles.postTitle}>{title}</h1>
+    <div className="my-10 flex flex-col space-y-3">
+      <div className="text-2xl md:text-4xl text-blue-600 font-bold">
+        {title}
+      </div>
       <PostInfo date={date} readTime={readTime} large />
       <img
-        className={styles.coverImage}
+        className="h-64 sm:h-72 md:h-96 object-cover shadow-xl"
         src={coverImage.file}
         alt={coverImage.alt}
         loading="lazy"
