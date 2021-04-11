@@ -1,6 +1,6 @@
 const Author = () => {
   return (
-    <div className="flex items-center mb-4 mx-auto px-4 max-w-lg md:px-0 md:max-w-xl lg:max-w-4xl">
+    <div className="flex items-center mb-4 mx-auto max-w-lg md:max-w-xl lg:max-w-4xl mt-4">
       <img
         className="h-12 w-12 md:h-16 md:w-16 mr-4 rounded-full object-cover object-center"
         alt="Profile"

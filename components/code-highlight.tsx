@@ -8,23 +8,7 @@ type CodeHighlightProps = {
 
 const CodeHighlight: React.FC<CodeHighlightProps> = ({ value, language }) => {
   return (
-    <SyntaxHighlighter
-      style={coy}
-      language={language}
-      customStyle={{
-        padding: '1rem',
-        margin: '0',
-        borderRadius: '0.5rem'
-      }}
-      codeTagProps={{
-        style: {
-          fontFamily: 'Nunito',
-          backgroundColor: 'transparent !important',
-          padding: '0',
-          borderRadius: '0'
-        }
-      }}
-    >
+    <SyntaxHighlighter style={coy} language={language}>
       {value}
     </SyntaxHighlighter>
   );
