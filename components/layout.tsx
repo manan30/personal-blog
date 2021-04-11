@@ -8,12 +8,12 @@ type LayoutProps = {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <>
+    <div className="">
       <Header />
       <Meta />
       <main>{children}</main>
       <Footer />
-    </>
+    </div>
   );
 };
 

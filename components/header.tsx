@@ -2,8 +2,10 @@ import ToggleSwitch from './toggle-switch';
 
 const Header = () => {
   return (
-    <div className="flex justify-end p-6">
-      <ToggleSwitch />
+    <div className="flex items-center p-6">
+      <div className="ml-auto">
+        <ToggleSwitch />
+      </div>
     </div>
   );
 };
