@@ -10,8 +10,8 @@ const PostInfo: React.FC<PostInfoProps> = ({ date, readTime, large }) => {
   return (
     <div
       className={cn(
-        'flex items-center text-xs text-gray-500 tracking-tight space-x-2',
-        large && 'text-sm'
+        'flex items-center text-xxs md:text-xs text-gray-500 tracking-tight space-x-2',
+        large && 'text-xs md:text-sm'
       )}
     >
       <div>

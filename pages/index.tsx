@@ -1,3 +1,4 @@
+import { GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
 import AllPosts from '../components/all-posts';
 import Error from '../components/error';
@@ -12,7 +13,6 @@ type HomePageProps = {
 };
 
 const Home: React.FC<HomePageProps> = ({ allPosts, error }) => {
-  console.log({ allPosts });
   return (
     <Layout>
       <NextSeo
@@ -27,13 +27,15 @@ const Home: React.FC<HomePageProps> = ({ allPosts, error }) => {
       <div className="min-h-screen mx-auto px-6 max-w-lg md:px-0 md:max-w-xl lg:max-w-4xl">
         <div className="flex flex-col items-center mx-12 mt-12">
           <img
-            className="h-32 w-32 rounded-full bg-center bg-no-repeat bg-contain"
+            className="h-24 w-24 md:h-32 md:w-32 rounded-full object-contain object-center"
             alt="Profile"
             src="/images/profile-picture.jpg"
             loading="lazy"
           />
-          <h1 className="text-4xl my-4 font-medium">Manan Joshi</h1>
-          <div className="text-center text-base">
+          <h1 className="md:text-4xl text-2xl my-4 font-medium text-center">
+            Manan Joshi
+          </h1>
+          <div className="text-center text-sm md:text-base">
             I try to explain the <i>chaos</i> in my mind with <i>ordered</i>{' '}
             code
           </div>
@@ -52,7 +54,7 @@ const Home: React.FC<HomePageProps> = ({ allPosts, error }) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const { posts, error } = await getAllPosts();
   return { props: { allPosts: posts, error } };
 };

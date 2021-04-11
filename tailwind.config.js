@@ -3,6 +3,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      fontSize: {
+        xxs: '0.6rem'
+      },
       keyframes: {
         'slide-in': {
           '0%': { transform: 'translateX(15rem)', opacity: 0 },
