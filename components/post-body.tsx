@@ -8,12 +8,13 @@ type PostBodyProps = {
 
 const PostBody: React.FC<PostBodyProps> = ({ content }) => {
   return (
-    <ReactMarkdown
-      escapeHtml={false}
-      source={content}
-      className={styles.postBody}
-      renderers={{ code: CodeHighlight }}
-    />
+    <div className="prose sm:prose-lg lg:prose-xl prose-blue">
+      <ReactMarkdown
+        escapeHtml={false}
+        source={content}
+        renderers={{ code: CodeHighlight }}
+      />
+    </div>
   );
 };
 

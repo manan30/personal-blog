@@ -25,7 +25,7 @@ const Post: React.FC<PostPageProps> = ({ post, slug }) => {
 
   return (
     <Layout>
-      <div className="min-h-screen">
+      <div className="min-h-screen mx-auto px-6 max-w-lg md:px-0 md:max-w-xl lg:max-w-4xl">
         {router.isFallback ? (
           <LoaderRipple />
         ) : (

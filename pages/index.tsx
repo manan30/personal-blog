@@ -1,11 +1,8 @@
 import { GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
-import { useRouter } from 'next/router';
 import AllPosts from '../components/all-posts';
 import Error from '../components/error';
 import Layout from '../components/layout';
-import LoaderCard from '../components/Loaders/loader-card';
-import LoaderRipple from '../components/Loaders/loader-ripple';
 import { getAllPosts } from '../contentful';
 import { HomeScreenPost } from '../contentful/utils';
 
