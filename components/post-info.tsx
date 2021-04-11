@@ -10,7 +10,7 @@ const PostInfo: React.FC<PostInfoProps> = ({ date, readTime, large }) => {
   return (
     <div
       className={cn(
-        'flex items-center text-xxs md:text-xs text-gray-500 tracking-tight space-x-2',
+        'flex items-center text-xxs md:text-xs text-gray-500 tracking-tight space-x-2 dark:text-gray-100',
         large && 'text-xs md:text-sm'
       )}
     >
@@ -21,7 +21,11 @@ const PostInfo: React.FC<PostInfoProps> = ({ date, readTime, large }) => {
         })}
         , {date.getFullYear()}
       </div>
-      <svg height="8" width="8" className="fill-current text-gray-500">
+      <svg
+        height="8"
+        width="8"
+        className="fill-current text-gray-500 dark:text-gray-100"
+      >
         <circle cx="4" cy="4" r="2" />
       </svg>
       <div>{readTime} min read</div>

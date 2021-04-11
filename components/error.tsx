@@ -15,7 +15,7 @@ const Error: React.FC<ErrorProps> = ({ message }) => {
     !completed && (
       <div
         className={cn(
-          'absolute bottom-8 right-8 p-4 bg-red-500 rounded-md text-sm text-gray-200 shadow-xl',
+          'absolute bottom-8 right-8 p-4 bg-red-500 rounded-md text-sm text-gray-200 shadow-xl dark:bg-red-700 dark:text-gray-200',
           animationState === 'enter'
             ? 'animate-slide-up md:animate-slide-in'
             : 'animate-slide-down md:animate-slide-out'

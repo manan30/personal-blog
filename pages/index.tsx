@@ -30,10 +30,10 @@ const Home: React.FC<HomePageProps> = ({ allPosts, error }) => {
           src="/images/profile-picture.webp"
           loading="lazy"
         />
-        <h1 className="md:text-4xl text-2xl my-4 font-medium text-center">
+        <h1 className="md:text-4xl text-2xl my-4 font-medium text-center dark:text-gray-200">
           Manan Joshi
         </h1>
-        <div className="text-center text-sm md:text-base">
+        <div className="text-center text-sm md:text-base dark:text-gray-300">
           I try to explain the <i>chaos</i> in my mind with <i>ordered</i> code
         </div>
       </div>

@@ -25,46 +25,42 @@ const Post: React.FC<PostPageProps> = ({ post, slug }) => {
 
   return (
     <Layout>
-      <div className="min-h-screen mx-auto px-6 max-w-lg md:px-0 md:max-w-xl lg:max-w-4xl">
-        {router.isFallback ? (
-          <LoaderRipple />
-        ) : (
-          <article>
-            <NextSeo
-              title={post.seoTitle}
-              description={post.seoDescription}
-              openGraph={{
-                type: 'article',
-                url: `https://blog.mananjoshi.me/${slug}`,
-                description: post.seoDescription,
-                title: post.seoTitle,
-                images: [
-                  { url: post.coverImage.file, alt: post.coverImage.alt }
-                ],
-                article: {
-                  publishedTime: new Intl.DateTimeFormat('en-US', {
-                    day: 'numeric',
-                    year: 'numeric',
-                    month: 'long'
-                  }).format(new Date(post.date)),
-                  tags: ['React']
-                }
-              }}
-            />
-            <PostHeader
-              title={post.title}
-              coverImage={{
-                file: post.coverImage.file,
-                alt: post.coverImage.alt
-              }}
-              date={new Date(post.date)}
-              readTime={post.readTime}
-            />
-            <PostBody content={post.content} />
-            <Author />
-          </article>
-        )}
-      </div>
+      {router.isFallback ? (
+        <LoaderRipple />
+      ) : (
+        <article>
+          <NextSeo
+            title={post.seoTitle}
+            description={post.seoDescription}
+            openGraph={{
+              type: 'article',
+              url: `https://blog.mananjoshi.me/${slug}`,
+              description: post.seoDescription,
+              title: post.seoTitle,
+              images: [{ url: post.coverImage.file, alt: post.coverImage.alt }],
+              article: {
+                publishedTime: new Intl.DateTimeFormat('en-US', {
+                  day: 'numeric',
+                  year: 'numeric',
+                  month: 'long'
+                }).format(new Date(post.date)),
+                tags: ['React']
+              }
+            }}
+          />
+          <PostHeader
+            title={post.title}
+            coverImage={{
+              file: post.coverImage.file,
+              alt: post.coverImage.alt
+            }}
+            date={new Date(post.date)}
+            readTime={post.readTime}
+          />
+          <PostBody content={post.content} />
+          <Author />
+        </article>
+      )}
     </Layout>
   );
 };
