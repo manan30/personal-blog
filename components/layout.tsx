@@ -8,10 +8,10 @@ type LayoutProps = {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="">
+    <div className="mx-auto px-6 max-w-lg md:px-0 md:max-w-xl lg:max-w-4xl">
       <Header />
       <Meta />
-      <main>{children}</main>
+      <main className="min-h-screen">{children}</main>
       <Footer />
     </div>
   );

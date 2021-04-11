@@ -16,7 +16,9 @@ const Error: React.FC<ErrorProps> = ({ message }) => {
       <div
         className={cn(
           'absolute bottom-8 right-8 p-4 bg-red-500 rounded-md text-sm text-gray-200 shadow-xl',
-          animationState === 'enter' ? 'animate-slide-in' : 'animate-slide-out'
+          animationState === 'enter'
+            ? 'animate-slide-up md:animate-slide-in'
+            : 'animate-slide-down md:animate-slide-out'
         )}
         onAnimationEnd={() => {
           if (animationState === 'enter') {

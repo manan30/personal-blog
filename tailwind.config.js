@@ -14,11 +14,21 @@ module.exports = {
         'slide-out': {
           '0%': { transform: 'translateX(0)', opacity: 1 },
           '100%': { transform: 'translateX(15rem)', opacity: 0 }
+        },
+        'slide-up': {
+          '0%': { transform: 'translateY(15rem)', opacity: 0 },
+          '100%': { transform: 'translateY(0)', opacity: 1 }
+        },
+        'slide-down': {
+          '0%': { transform: 'translateY(0)', opacity: 1 },
+          '100%': { transform: 'translateY(15rem)', opacity: 0 }
         }
       },
       animation: {
         'slide-in': 'slide-in 1s ease-out',
-        'slide-out': 'slide-out 1s ease-out'
+        'slide-out': 'slide-out 1s ease-in',
+        'slide-up': 'slide-up 1s ease-out',
+        'slide-down': 'slide-down 1s ease-in'
       },
       typography: (theme) => ({
         DEFAULT: {
