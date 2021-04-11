@@ -1,9 +1,11 @@
 import { GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
+import { useRouter } from 'next/router';
 import AllPosts from '../components/all-posts';
 import Error from '../components/error';
 import Layout from '../components/layout';
-import Loader from '../components/loader';
+import LoaderCard from '../components/Loaders/loader-card';
+import LoaderRipple from '../components/Loaders/loader-ripple';
 import { getAllPosts } from '../contentful';
 import { HomeScreenPost } from '../contentful/utils';
 
@@ -40,7 +42,7 @@ const Home: React.FC<HomePageProps> = ({ allPosts, error }) => {
             code
           </div>
         </div>
-        {allPosts.length === 0 ? <Loader /> : <AllPosts posts={allPosts} />}
+        <AllPosts posts={allPosts} />
         {/* <div className={styles.tagsContainer}>
           <h3 className={styles.tagsContainerTitle}>Tags</h3>
           <div className={styles.tagsGrid}>

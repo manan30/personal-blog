@@ -5,12 +5,11 @@ import ErrorPage from 'next/error';
 import { useRouter } from 'next/router';
 import Author from '../components/author';
 import Layout from '../components/layout';
-import Loader from '../components/loader';
+import LoaderRipple from '../components/Loaders/loader-ripple';
 import PostBody from '../components/post-body';
 import PostHeader from '../components/post-header';
 import { getAllPostsWithSlug, getPostBySlug } from '../contentful';
 import { ParsedPost } from '../contentful/utils';
-import styles from '../styles/Slug.module.css';
 
 type PostPageProps = {
   post: ParsedPost | null;
@@ -26,14 +25,9 @@ const Post: React.FC<PostPageProps> = ({ post, slug }) => {
 
   return (
     <Layout>
-      <div
-        // className={[styles.container, router.isFallback && styles.loader].join(
-        //   ' '
-        // )}
-        className="h-screen"
-      >
+      <div className="min-h-screen">
         {router.isFallback ? (
-          <Loader />
+          <LoaderRipple />
         ) : (
           <article>
             <NextSeo
