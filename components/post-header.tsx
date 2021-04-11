@@ -15,7 +15,7 @@ const PostHeader: React.FC<PostHeaderProps> = ({
 }) => {
   return (
     <div className="my-10 flex flex-col space-y-3">
-      <div className="text-2xl md:text-4xl text-blue-600 font-bold">
+      <div className="text-2xl md:text-4xl text-blue-600 font-bold dark:text-green-500">
         {title}
       </div>
       <PostInfo date={date} readTime={readTime} large />

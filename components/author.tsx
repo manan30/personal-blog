@@ -7,7 +7,7 @@ const Author = () => {
         src="/images/profile-picture.webp"
         loading="lazy"
       />
-      <div className="text-xxs md:text-sm">
+      <div className="text-xxs md:text-sm dark:text-gray-200">
         <a href="https://mananjoshi.me"> Manan Joshi</a> is a passionate
         full-stack developer working with web technologies. He loves using
         React, GraphQL, Gatsby, Next JS, Svelte and other cool stuff. Feel free

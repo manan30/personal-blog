@@ -10,22 +10,18 @@ const ToggleSwitch = () => {
   };
 
   return (
-    <>
-      {/* {colorMode === 'dark' && <SunIcon className={styles.svgLight} />} */}
-      <button
-        className="bg-gray-300 rounded-full p-2 flex items-center justify-center"
-        type="button"
-        aria-label="toggle-switch"
-        onClick={clickHandler}
-      >
-        {colorMode === 'dark' ? (
-          <LightBulbIcon className="h-5 w-5" />
-        ) : (
-          <LightBulbIconDark className="h-5 w-5" />
-        )}
-      </button>
-      {/* {colorMode !== 'dark' && <MoonIcon className={styles.svgDark} />} */}
-    </>
+    <button
+      className="bg-gray-300 rounded-full p-2 flex items-center justify-center"
+      type="button"
+      aria-label="toggle-switch"
+      onClick={clickHandler}
+    >
+      {colorMode === 'dark' ? (
+        <LightBulbIcon className="h-5 w-5" />
+      ) : (
+        <LightBulbIconDark className="h-5 w-5" />
+      )}
+    </button>
   );
 };
 

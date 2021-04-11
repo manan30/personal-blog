@@ -10,7 +10,9 @@ type AllPostsProps = {
 const AllPosts: React.FC<AllPostsProps> = ({ posts }) => {
   return (
     <div className="flex flex-col mt-8 md:mt-12">
-      <h3 className="my-4 font-medium text-xl px-2 md:text-2xl ">All Posts</h3>
+      <h3 className="my-4 font-medium text-xl px-2 md:text-2xl dark:text-gray-200">
+        All Posts
+      </h3>
       <div className="space-y-5">
         {posts.map((post) => (
           <div
@@ -19,7 +21,7 @@ const AllPosts: React.FC<AllPostsProps> = ({ posts }) => {
           >
             <Link href="/[slug]" as={`/${post.slug}`}>
               {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a className="font-semibold text-base md:text-xl text-blue-700 dark:text-gray-200">
+              <a className="font-semibold text-base md:text-xl text-blue-700 dark:text-green-400">
                 {post.title}
               </a>
             </Link>
