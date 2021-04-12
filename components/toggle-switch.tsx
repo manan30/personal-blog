@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { LightBulbIcon as LightBulbIconDark } from '@heroicons/react/solid';
 import { LightBulbIcon } from '@heroicons/react/outline';
+import { useTheme } from '../providers/ThemeProvider';
 
 const ToggleSwitch = () => {
-  const [colorMode, setColorMode] = useState('');
+  const [currentTheme, setCurrentTheme] = useTheme();
 
   const clickHandler = () => {
-    setColorMode(colorMode === 'dark' ? 'light' : 'dark');
+    if (currentTheme === 'dark') {
+      document.body.classList.remove('dark');
+    } else {
+      document.body.classList.add('dark');
+    }
+    setCurrentTheme(currentTheme === 'dark' ? 'light' : 'dark');
   };
 
   return (
@@ -16,7 +22,7 @@ const ToggleSwitch = () => {
       aria-label="toggle-switch"
       onClick={clickHandler}
     >
-      {colorMode === 'dark' ? (
+      {currentTheme === 'dark' ? (
         <LightBulbIcon className="h-5 w-5" />
       ) : (
         <LightBulbIconDark className="h-5 w-5" />

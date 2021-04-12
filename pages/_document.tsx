@@ -25,9 +25,11 @@ export default class MyDocument extends Document {
             }}
           />
         </Head>
-        <body className="dark:bg-gray-800">
-          <Main />
-          <NextScript />
+        <body>
+          <div className="h-screen w-screen dark:bg-gray-800">
+            <Main />
+            <NextScript />
+          </div>
         </body>
       </Html>
     );
