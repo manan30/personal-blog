@@ -10,6 +10,7 @@ type ThemeProviderProps = {
 
 const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const [currentTheme, setCurrentTheme] = useState<'light' | 'dark'>('light');
+
   return (
     <ThemeContext.Provider value={[currentTheme, setCurrentTheme]}>
       {children}

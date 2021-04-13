@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { LightBulbIcon as LightBulbIconDark } from '@heroicons/react/solid';
 import { LightBulbIcon } from '@heroicons/react/outline';
 import { useTheme } from '../providers/ThemeProvider';
@@ -14,6 +14,10 @@ const ToggleSwitch = () => {
     }
     setCurrentTheme(currentTheme === 'dark' ? 'light' : 'dark');
   };
+
+  useEffect(() => {
+    window.localStorage.setItem('manan-joshi-blog-theme', currentTheme);
+  }, [currentTheme]);
 
   return (
     <button
