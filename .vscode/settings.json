@@ -9,12 +9,15 @@
     "Nunito",
     "Opengraph",
     "gtag",
+    "heroicons",
     "linkedin",
     "mcje",
     "noopener",
     "rarr",
     "stackoverflow",
     "svgr",
-    "vercel"
+    "tailwindcss",
+    "vercel",
+    "webp"
   ]
 }

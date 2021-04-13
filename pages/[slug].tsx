@@ -5,12 +5,11 @@ import ErrorPage from 'next/error';
 import { useRouter } from 'next/router';
 import Author from '../components/author';
 import Layout from '../components/layout';
-import Loader from '../components/loader';
+import LoaderRipple from '../components/loaders/loader-ripple';
 import PostBody from '../components/post-body';
 import PostHeader from '../components/post-header';
 import { getAllPostsWithSlug, getPostBySlug } from '../contentful';
 import { ParsedPost } from '../contentful/utils';
-import styles from '../styles/Slug.module.css';
 
 type PostPageProps = {
   post: ParsedPost | null;
@@ -26,50 +25,42 @@ const Post: React.FC<PostPageProps> = ({ post, slug }) => {
 
   return (
     <Layout>
-      <div
-        className={[styles.container, router.isFallback && styles.loader].join(
-          ' '
-        )}
-      >
-        {router.isFallback ? (
-          <Loader />
-        ) : (
-          <article>
-            <NextSeo
-              title={post.seoTitle}
-              description={post.seoDescription}
-              openGraph={{
-                type: 'article',
-                url: `https://blog.mananjoshi.me/${slug}`,
-                description: post.seoDescription,
-                title: post.seoTitle,
-                images: [
-                  { url: post.coverImage.file, alt: post.coverImage.alt }
-                ],
-                article: {
-                  publishedTime: new Intl.DateTimeFormat('en-US', {
-                    day: 'numeric',
-                    year: 'numeric',
-                    month: 'long'
-                  }).format(new Date(post.date)),
-                  tags: ['React']
-                }
-              }}
-            />
-            <PostHeader
-              title={post.title}
-              coverImage={{
-                file: post.coverImage.file,
-                alt: post.coverImage.alt
-              }}
-              date={new Date(post.date)}
-              readTime={post.readTime}
-            />
-            <PostBody content={post.content} />
-            <Author />
-          </article>
-        )}
-      </div>
+      {router.isFallback ? (
+        <LoaderRipple />
+      ) : (
+        <article>
+          <NextSeo
+            title={post.seoTitle}
+            description={post.seoDescription}
+            openGraph={{
+              type: 'article',
+              url: `https://blog.mananjoshi.me/${slug}`,
+              description: post.seoDescription,
+              title: post.seoTitle,
+              images: [{ url: post.coverImage.file, alt: post.coverImage.alt }],
+              article: {
+                publishedTime: new Intl.DateTimeFormat('en-US', {
+                  day: 'numeric',
+                  year: 'numeric',
+                  month: 'long'
+                }).format(new Date(post.date)),
+                tags: ['React']
+              }
+            }}
+          />
+          <PostHeader
+            title={post.title}
+            coverImage={{
+              file: post.coverImage.file,
+              alt: post.coverImage.alt
+            }}
+            date={new Date(post.date)}
+            readTime={post.readTime}
+          />
+          <PostBody content={post.content} />
+          <Author />
+        </article>
+      )}
     </Layout>
   );
 };

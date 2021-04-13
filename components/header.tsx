@@ -1,10 +1,11 @@
 import ToggleSwitch from './toggle-switch';
-import styles from '../styles/Header.module.css';
 
 const Header = () => {
   return (
-    <div className={styles.container}>
-      <ToggleSwitch />
+    <div className="flex items-center py-6 mr-2 sm:-mr-1">
+      <div className="ml-auto">
+        <ToggleSwitch />
+      </div>
     </div>
   );
 };

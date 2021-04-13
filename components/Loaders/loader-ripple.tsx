@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from '../styles/Loader.module.css';
+import styles from '../../styles/Loader.module.css';
 
-const Loader = () => {
+const LoaderRipple = () => {
   return (
     <div className={styles.container}>
       <div className={styles.loader}>
@@ -12,4 +12,4 @@ const Loader = () => {
   );
 };
 
-export default Loader;
+export default LoaderRipple;

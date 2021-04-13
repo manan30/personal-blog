@@ -1,4 +1,4 @@
-import styles from '../styles/PostInfo.module.css';
+import cn from 'classnames';
 
 type PostInfoProps = {
   date: Date;
@@ -8,7 +8,12 @@ type PostInfoProps = {
 
 const PostInfo: React.FC<PostInfoProps> = ({ date, readTime, large }) => {
   return (
-    <div className={[styles.postInfo, large && styles.large].join(' ')}>
+    <div
+      className={cn(
+        'flex items-center text-xxs md:text-xs text-gray-500 tracking-tight space-x-2 dark:text-gray-100 transition duration-500',
+        large && 'text-xs md:text-sm'
+      )}
+    >
       <div>
         {date.getDate()}{' '}
         {date.toLocaleString('default', {
@@ -16,8 +21,14 @@ const PostInfo: React.FC<PostInfoProps> = ({ date, readTime, large }) => {
         })}
         , {date.getFullYear()}
       </div>
-      <div className={[styles.separator, large && styles.large].join(' ')} />
-      <div>{readTime}min read</div>
+      <svg
+        height="8"
+        width="8"
+        className="fill-current text-gray-500 dark:text-gray-100 transition duration-500"
+      >
+        <circle cx="4" cy="4" r="2" />
+      </svg>
+      <div>{readTime} min read</div>
     </div>
   );
 };
