@@ -5,7 +5,6 @@ import { useEffect } from 'react';
 import { pageView } from '../google-analytics';
 import defaultSEOValues from '../next-seo.config';
 import 'tailwindcss/tailwind.css';
-import ThemeProvider from '../providers/ThemeProvider';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -23,9 +22,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <DefaultSeo {...defaultSEOValues} />
-      <ThemeProvider>
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <Component {...pageProps} />
     </>
   );
 }

@@ -1,13 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { LightBulbIcon as LightBulbIconDark } from '@heroicons/react/solid';
 import { LightBulbIcon } from '@heroicons/react/outline';
-import { useTheme } from '../providers/ThemeProvider';
 
 const ToggleSwitch = () => {
-  const [currentTheme, setCurrentTheme] = useTheme();
+  const [currentTheme, setCurrentTheme] = useState('');
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (mounted) {
+      setCurrentTheme(localStorage.getItem('manan-joshi-blog-theme'));
+    }
+  }, [mounted]);
 
   const clickHandler = () => {
-    setCurrentTheme(currentTheme === 'dark' ? 'light' : 'dark');
+    if (currentTheme === 'dark') {
+      setCurrentTheme('light');
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('manan-joshi-blog-theme', 'light');
+    } else {
+      setCurrentTheme('dark');
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('manan-joshi-blog-theme', 'dark');
+    }
   };
 
   return (
