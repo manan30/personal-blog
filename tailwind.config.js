@@ -73,10 +73,18 @@ module.exports = {
                 color: theme('colors.gray.300')
               },
               a: {
-                color: theme('colors.white')
+                color: theme('colors.green.400'),
+                textDecoration: 'none',
+                transition: 'all 0.2s',
+                padding: '0.25rem',
+                borderRadius: '0.5rem',
+                '&:hover': {
+                  backgroundColor: theme('colors.green.400'),
+                  color: '#fefefe'
+                }
               },
               strong: {
-                color: theme('colors.white')
+                color: theme('colors.gray.50')
               },
               'ol > li::before': {
                 color: theme('colors.gray.400')
@@ -92,29 +100,29 @@ module.exports = {
                 borderLeftColor: theme('colors.gray.600')
               },
               h1: {
-                color: theme('colors.white')
+                color: theme('colors.gray.100')
               },
               h2: {
-                color: theme('colors.white')
+                color: theme('colors.gray.100')
               },
               h3: {
-                color: theme('colors.white')
+                color: theme('colors.gray.100')
               },
               h4: {
-                color: theme('colors.white')
+                color: theme('colors.gray.100')
               },
               'figure figcaption': {
                 color: theme('colors.gray.400')
               },
               code: {
-                color: theme('colors.white')
+                color: theme('colors.gray.50')
               },
               'a code': {
-                color: theme('colors.white')
+                color: theme('colors.gray.50')
               },
               pre: {
                 color: theme('colors.gray.200'),
-                backgroundColor: theme('colors.gray.800')
+                backgroundColor: theme('colors.gray.900')
               },
               thead: {
                 color: theme('colors.white'),
