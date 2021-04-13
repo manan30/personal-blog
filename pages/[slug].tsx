@@ -5,7 +5,7 @@ import ErrorPage from 'next/error';
 import { useRouter } from 'next/router';
 import Author from '../components/author';
 import Layout from '../components/layout';
-import LoaderRipple from '../components/loaders/loader-ripple';
+import LoaderRipple from '../components/Loaders/loader-ripple';
 import PostBody from '../components/post-body';
 import PostHeader from '../components/post-header';
 import { getAllPostsWithSlug, getPostBySlug } from '../contentful';
