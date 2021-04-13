@@ -25,15 +25,15 @@ const Home: React.FC<HomePageProps> = ({ allPosts, error }) => {
       />
       <div className="flex flex-col items-center mt-8 md:mt-12">
         <img
-          className="h-24 w-24 md:h-32 md:w-32 rounded-full object-cover object-center"
+          className="h-24 w-24 md:h-32 md:w-32 rounded-full object-cover object-center shadow-lg"
           alt="Profile"
           src="/images/profile-picture.webp"
           loading="lazy"
         />
-        <h1 className="md:text-4xl text-2xl my-4 font-medium text-center dark:text-gray-200">
+        <h1 className="md:text-4xl text-2xl my-4 font-medium text-center dark:text-gray-200 transition duration-500">
           Manan Joshi
         </h1>
-        <div className="text-center text-sm md:text-base dark:text-gray-300">
+        <div className="text-center text-sm md:text-base dark:text-gray-300 transition duration-500">
           I try to explain the <i>chaos</i> in my mind with <i>ordered</i> code
         </div>
       </div>

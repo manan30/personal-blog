@@ -10,7 +10,7 @@ type AllPostsProps = {
 const AllPosts: React.FC<AllPostsProps> = ({ posts }) => {
   return (
     <div className="flex flex-col mt-8 md:mt-12">
-      <h3 className="my-4 font-medium text-xl px-2 md:text-2xl dark:text-gray-200">
+      <h3 className="my-4 font-medium text-xl px-2 md:text-2xl dark:text-gray-200 transition duration-500">
         All Posts
       </h3>
       <div className="space-y-5">
