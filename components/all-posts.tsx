@@ -17,11 +17,11 @@ const AllPosts: React.FC<AllPostsProps> = ({ posts }) => {
         {posts.map((post) => (
           <div
             key={post.id}
-            className="px-4 py-3 rounded-xl hover:shadow-lg transition duration-500 ease-in-out flex flex-col space-y-2 dark:bg-gray-800"
+            className="px-4 py-3 rounded-xl hover:shadow-lg transition duration-500 flex flex-col space-y-2 dark:bg-gray-800"
           >
             <Link href="/[slug]" as={`/${post.slug}`}>
               {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a className="font-semibold text-base md:text-xl text-blue-700 dark:text-green-400">
+              <a className="font-semibold text-base md:text-xl text-blue-700 dark:text-green-400 transition duration-500">
                 {post.title}
               </a>
             </Link>
@@ -30,7 +30,7 @@ const AllPosts: React.FC<AllPostsProps> = ({ posts }) => {
               readTime={post.readTime}
               large={false}
             />
-            <div className="text-xs md:text-sm font-medium dark:text-gray-300">
+            <div className="text-xs md:text-sm font-medium dark:text-gray-300 transition duration-500">
               {post.excerpt}
             </div>
           </div>

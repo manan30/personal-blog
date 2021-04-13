@@ -26,7 +26,7 @@ export default class MyDocument extends Document {
           />
         </Head>
         <body>
-          <div className="h-screen w-screen dark:bg-gray-800">
+          <div className="h-full w-full dark:bg-gray-800 transition duration-500">
             <Main />
             <NextScript />
           </div>

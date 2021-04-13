@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { LightBulbIcon as LightBulbIconDark } from '@heroicons/react/solid';
 import { LightBulbIcon } from '@heroicons/react/outline';
 import { useTheme } from '../providers/ThemeProvider';
@@ -17,7 +17,7 @@ const ToggleSwitch = () => {
 
   return (
     <button
-      className="bg-gray-300 rounded-full p-2 flex items-center justify-center"
+      className="bg-gray-300 rounded-full p-2 flex items-center justify-center focus:outline-none"
       type="button"
       aria-label="toggle-switch"
       onClick={clickHandler}

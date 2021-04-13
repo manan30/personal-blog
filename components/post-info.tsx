@@ -10,7 +10,7 @@ const PostInfo: React.FC<PostInfoProps> = ({ date, readTime, large }) => {
   return (
     <div
       className={cn(
-        'flex items-center text-xxs md:text-xs text-gray-500 tracking-tight space-x-2 dark:text-gray-100',
+        'flex items-center text-xxs md:text-xs text-gray-500 tracking-tight space-x-2 dark:text-gray-100 transition duration-500',
         large && 'text-xs md:text-sm'
       )}
     >
@@ -24,7 +24,7 @@ const PostInfo: React.FC<PostInfoProps> = ({ date, readTime, large }) => {
       <svg
         height="8"
         width="8"
-        className="fill-current text-gray-500 dark:text-gray-100"
+        className="fill-current text-gray-500 dark:text-gray-100 transition duration-500"
       >
         <circle cx="4" cy="4" r="2" />
       </svg>
