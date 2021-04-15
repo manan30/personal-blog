@@ -8,6 +8,7 @@ import Layout from '../components/layout';
 import LoaderRipple from '../components/Loaders/loader-ripple';
 import PostBody from '../components/post-body';
 import PostHeader from '../components/post-header';
+import ProgressBar from '../components/progress-bar';
 import { getAllPostsWithSlug, getPostBySlug } from '../contentful';
 import { ParsedPost } from '../contentful/utils';
 
@@ -48,6 +49,7 @@ const Post: React.FC<PostPageProps> = ({ post, slug }) => {
               }
             }}
           />
+          <ProgressBar />
           <PostHeader
             title={post.title}
             coverImage={{
